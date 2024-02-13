@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Land Details</title>
+    {% load static %}
+    load
+    <link rel="stylesheet" href="{% static 'bricks/style_form.css' %}" />
+  </head>
+  <body>
+    <div class="myform">
+      <form action="" method="post" id="myform">
+        {% csrf_token %} {{form}} <button type="Submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

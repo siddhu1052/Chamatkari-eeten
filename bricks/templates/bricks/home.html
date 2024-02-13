@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bricks/style_home.css' %}" />
+
+    <title>home</title>
+  </head>
+  <body>
+    {% include "bricks/navbar.html" %}
+    <style>
+        @media only screen and (max-width: 760px) {
+            body {
+              background-color: rgb(148, 26, 26);
+            }
+          }
+    </style>
+    <h1>Welcome to home page</h1>
+  </body>
+</html>

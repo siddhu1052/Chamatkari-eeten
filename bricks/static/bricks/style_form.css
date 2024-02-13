@@ -1,0 +1,46 @@
+form>div>input {
+    background-color: rgb(214, 17, 27);
+    opacity: 0.2;
+    border: 0.3vw  rgb(127, 6, 6);
+    border-style: groove;
+}
+
+form>div>label {
+    color: white
+}
+
+
+input {
+    border-radius: 5%;
+}
+
+body {
+    background-image: url("https://images.unsplash.com/photo-1707608079333-90cf44192c4e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form {
+    /* background-color: aquamarine; */
+    -webkit-backdrop-filter: blur(9px);
+    backdrop-filter: blur(9px);
+    display: flexbox;
+    box-sizing: border-box;
+    width: fit-content;
+    min-height: fit-content;
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border:0.05vw solid black;
+    box-shadow:  1px 2px 25px black, 0 0 25px rgb(155, 155, 165);
+    padding: 5vw;
+    border-radius: 10%;
+}
+
+form>div {
+    box-sizing: border-box;
+}
