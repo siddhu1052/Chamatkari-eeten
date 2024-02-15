@@ -1,0 +1,44 @@
+.main {
+    display: flex;
+}
+
+#cat {
+    flex: 1;
+    font-size: 1.5vw;
+}
+
+#cat:hover{
+    text-decoration: none;
+}
+#cat:active{
+    border-bottom: 0.2vw solid red;
+}
+#cat:focus{
+    border-bottom: 0.2vw solid red;
+}
+
+.heading:hover {
+    position: relative;
+    text-shadow: 1vw 1vw 2vw red;
+    border-bottom: 0.2vw solid red;
+}
+
+.heading {
+    margin:auto ;
+    justify-content: center;
+    text-align: center; 
+}
+
+.properties{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center;
+    align-items: center; */
+    width: 100%;
+    margin-top: 2vh;
+}
+
+.property{
+    margin-left: 2vw;
+    margin-right: 2vw;
+}

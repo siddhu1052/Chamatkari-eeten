@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% load static %}
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'bricks/style_properties.css' %}" />
   </head>
   <body>
+    {% include "bricks/navbar.html" %}
+    <h1>Welcome to home page</h1>
+
+    <div class="main">
+      {% if y %} {% for x in y %}
+      <a href="{% url 'properties' %}?category={{x.id}}" id="cat">
+        <div class="heading">{{x.cat}}</div>
+      </a>
+      {% endfor %} {% endif %}
+      
+    </div>
     <div class="properties">
       {% if obj %} {% for y in obj %}
         
@@ -23,7 +37,7 @@
         </div>
       {% endfor %}
       {% endif %}
-      
+
       {% if obj2 %}
       {% for y in obj2 %}
         <div class="property">

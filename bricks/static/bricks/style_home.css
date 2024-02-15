@@ -13,9 +13,7 @@
 #cat:focus{
     border-bottom: 0.2vw solid red;
 }
-/* #cat::after{
-    border-bottom: 0.2vw solid red;
-} */
+
 
 
 #cat:hover{
@@ -37,3 +35,4 @@ button:active{
     border:0;
     box-shadow: none;
 }
+

@@ -35,7 +35,7 @@ def properties(request):
     print (obj)
     p=land.objects.filter(cat__cat=obj.cat)
     q=built.objects.filter(cat__cat=obj.cat)
-    
+    y=category.objects.all()
     print(p.count())
-    return render(request,'bricks/properties.html',{"obj":p,"obj2":q})
+    return render(request,'bricks/properties.html',{"obj":p,"obj2":q,"y":y})
     
