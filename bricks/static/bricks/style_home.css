@@ -1,3 +1,39 @@
-body{
-    background-color: green;
+.main {
+    display: flex;
+}
+
+#cat {
+    flex: 1;
+    font-size: 1.5vw;
+}
+
+#cat:active{
+    border-bottom: 0.2vw solid red;
+}
+#cat:focus{
+    border-bottom: 0.2vw solid red;
+}
+/* #cat::after{
+    border-bottom: 0.2vw solid red;
+} */
+
+
+#cat:hover{
+    text-decoration: none;
+}
+.heading {
+    
+    margin:auto ;
+    justify-content: center;
+    text-align: center; 
+}
+
+.heading:hover {
+    text-shadow: 1vw 1vw 2vw red;
+    border-bottom: 0.2vw solid red;
+}
+
+button:active{
+    border:0;
+    box-shadow: none;
 }

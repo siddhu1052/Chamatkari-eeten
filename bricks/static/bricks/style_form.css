@@ -1,6 +1,6 @@
 form>div>input {
     background-color: rgb(214, 17, 27);
-    opacity: 0.2;
+    /* opacity: 0.2; */
     border: 0.3vw  rgb(127, 6, 6);
     border-style: groove;
 }
@@ -12,7 +12,9 @@ form>div>label {
 
 input {
     border-radius: 5%;
+    color: aliceblue;
 }
+
 
 body {
     background-image: url("https://images.unsplash.com/photo-1707608079333-90cf44192c4e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D");

@@ -10,13 +10,14 @@
   </head>
   <body>
     {% include "bricks/navbar.html" %}
-    <style>
-        @media only screen and (max-width: 760px) {
-            body {
-              background-color: rgb(148, 26, 26);
-            }
-          }
-    </style>
     <h1>Welcome to home page</h1>
+
+    <div class="main">
+      {% if y %} {% for x in y %}
+      <a href="{% url 'properties' %}?category={{x.id}}" id="cat">
+        <div class="heading">{{x.cat}}</div>
+      </a>
+      {% endfor %} {% endif %}
+    </div>
   </body>
 </html>
