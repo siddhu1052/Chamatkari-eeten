@@ -10,12 +10,20 @@
   </head>
   <body>
     {% include "bricks/navbar.html" %}
-    <h1>Welcome to home page</h1>
+    <h1>Available properties</h1>
 
     <div class="main">
       {% if y %} {% for x in y %}
       <a href="{% url 'properties' %}?category={{x.id}}" id="cat">
+        {% if current_cat %}
+          {% if current_cat == x.cat %}
+            <div class="heading" style="border-bottom: 0.2vw solid red;">{{x.cat}}</div>
+          {% else %}
+            <div class="heading">{{x.cat}}</div>
+          {% endif %}
+        {% else %}
         <div class="heading">{{x.cat}}</div>
+        {% endif %}
       </a>
       {% endfor %} {% endif %}
       

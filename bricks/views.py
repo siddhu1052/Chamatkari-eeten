@@ -7,7 +7,9 @@ from django.shortcuts import get_object_or_404
 # Create your views 
 def home(request):
     y=category.objects.all()
-    return render(request,'bricks/home.html',{"y":y})
+    p=land.objects.all()
+    q=built.objects.all()
+    return render(request,'bricks/home.html',{"obj":p,"obj2":q,"y":y})
 
 def land_details(request):
     if(request.method=='GET'):
@@ -37,5 +39,5 @@ def properties(request):
     q=built.objects.filter(cat__cat=obj.cat)
     y=category.objects.all()
     print(p.count())
-    return render(request,'bricks/properties.html',{"obj":p,"obj2":q,"y":y})
+    return render(request,'bricks/properties.html',{"obj":p,"obj2":q,"y":y,"current_cat":obj.cat})
     

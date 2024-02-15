@@ -36,3 +36,17 @@ button:active{
     box-shadow: none;
 }
 
+
+.properties{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center;
+    align-items: center; */
+    width: 100%;
+    margin-top: 2vh;
+}
+
+.property{
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
