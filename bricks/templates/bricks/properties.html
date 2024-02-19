@@ -12,7 +12,6 @@
 
 <body>
   {% include "bricks/navbar.html" %}
-  <h1>Available properties</h1>
 
   <div class="main">
     {% if y %} {% for x in y %}
@@ -30,15 +29,11 @@
     {% endfor %} {% endif %}
 
   </div>
-  <div class="properties" style="background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);margin: 2vh 2vw;padding: 5vh 0vw;width: auto;">
+  <div class="properties">
     {% if obj %} {% for y in obj %}
 
-    <div class="property"  style="background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.20);padding: 1.5vh 1.5vw;width: 50%;">
-      <div class="info_items"><img style="width: 100%;" src="{{y.images.url}}" alt=""></div>
+    <div class="property">
+      <div class="info_items"><img src="{{y.images.url}}" alt=""></div>
       <div class="info_items">On - {{y.cat}}</div>
       <div class="info_items">Area - {{y.area}}</div>
       <div class="info_items">Land Type - {{y.land_type}}</div>
@@ -57,10 +52,8 @@
 
     {% if obj2 %}
     {% for y in obj2 %}
-    <div class="property" style="background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.20);padding: 1.5vh 1.5vw;width: 50%;">
-      <div class="info_items"><img style="width: 100%;" src="{{y.images.url}}" alt=""></div>
+    <div class="property">
+      <div class="info_items"><img  src="{{y.images.url}}" alt=""></div>
       <div class="info_items">On - {{y.cat}}</div>
       <div class="info_items">Area - {{y.area}}</div>
       <div class="info_items">Age of Construction - {{y.age}}</div>

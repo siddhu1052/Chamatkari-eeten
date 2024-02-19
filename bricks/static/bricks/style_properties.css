@@ -32,13 +32,23 @@
 }
 
 .properties {
+    border-color: black;
+    border-width: 1vw;
     display: flex;
     flex-direction: row;
-    /* justify-content: center;
-    align-items: center; */
+    background-color: #fff;
+    border-radius: 2vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    margin: 2vh 2vw;
+    width: fit-content;
+    overflow: hidden;
 }
 
 .property {
-    margin-left: 2vw;
-    margin-right: 2vw;
+    
+    background-color: #fff;
+    box-shadow: 0 0 0.75vw rgb(5, 0, 0);
+    border-radius: 2vh;
+    margin: 0.75vw;
+    padding: 3vh 3vh;
 }
