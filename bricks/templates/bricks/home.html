@@ -12,7 +12,9 @@
 
 <body>
   {% include "bricks/navbar.html" %}
-  <h1>Welcome to home page</h1>
+  <h1 style="background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);text-align: center;font-size: 4vw;margin: 2vh 15vw;text-decoration: underline;">Welcome to home page</h1>
 
   <div class="main">
     {% if y %} {% for x in y %}
@@ -24,7 +26,7 @@
 
   <div class="properties" style="background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);margin: 2vh 2vw;padding: 2vh 0vw;">
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);margin: 2vh 2vw;padding: 2vh 0vw;width:auto;">
     {% if obj %} {% for y in obj %}
     <div class="property">
       <div class="info_items"><img src="{{y.images.url}}" alt=""></div>

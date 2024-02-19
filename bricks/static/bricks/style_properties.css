@@ -7,13 +7,15 @@
     font-size: 1.5vw;
 }
 
-#cat:hover{
+#cat:hover {
     text-decoration: none;
 }
-#cat:active{
+
+#cat:active {
     border-bottom: 0.2vw solid red;
 }
-#cat:focus{
+
+#cat:focus {
     border-bottom: 0.2vw solid red;
 }
 
@@ -24,21 +26,19 @@
 }
 
 .heading {
-    margin:auto ;
+    margin: auto;
     justify-content: center;
-    text-align: center; 
+    text-align: center;
 }
 
-.properties{
+.properties {
     display: flex;
     flex-direction: row;
     /* justify-content: center;
     align-items: center; */
-    width: 100%;
-    margin-top: 2vh;
 }
 
-.property{
+.property {
     margin-left: 2vw;
     margin-right: 2vw;
 }
