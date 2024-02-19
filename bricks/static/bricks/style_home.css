@@ -42,8 +42,11 @@ button:active{
     flex-direction: row;
     /* justify-content: center;
     align-items: center; */
+<<<<<<< HEAD
     width: auto;
     margin-top: 2vh;
+=======
+>>>>>>> f457d00e0edeb4b0183bf8d14629bcc8b9342640
 }
 
 .property{
