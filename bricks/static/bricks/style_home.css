@@ -42,7 +42,7 @@ button:active{
     flex-direction: row;
     /* justify-content: center;
     align-items: center; */
-    width: 100%;
+    width: auto;
     margin-top: 2vh;
 }
 
