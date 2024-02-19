@@ -35,7 +35,9 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);margin: 2vh 2vw;padding: 2vh 0vw;width: auto;">
     {% if obj %} {% for y in obj %}
 
-    <div class="property">
+    <div class="property"  style="background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.20);padding: 1.5vh 2vw;">
       <div class="info_items"><img src="{{y.images.url}}" alt=""></div>
       <div class="info_items">On - {{y.cat}}</div>
       <div class="info_items">Area - {{y.area}}</div>
@@ -55,7 +57,9 @@
 
     {% if obj2 %}
     {% for y in obj2 %}
-    <div class="property">
+    <div class="property" style="background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.20);padding: 1.5vh 2vw;">
       <div class="info_items"><img src="{{y.images.url}}" alt=""></div>
       <div class="info_items">On - {{y.cat}}</div>
       <div class="info_items">Area - {{y.area}}</div>
