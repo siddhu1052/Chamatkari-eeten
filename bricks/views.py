@@ -3,8 +3,29 @@ from .form import *
 from .models import *
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 
-# Create your views 
+# Create your views
+def Login(request):
+    if request.method == 'POST':
+  
+        # AuthenticationForm_can_also_be_used__
+        Name=request.POST['username']
+        username = request.POST['username']
+        
+        password = request.POST['password']
+        user = authenticate(request, username = username, password = password)
+        if user is not None:
+            form = login(request, user)
+            #messages.success(request, f' welcome {username} !!')
+            return redirect('/')
+        else:
+            return render(request, 'bricks/login.html',{'Alert':"Username or password sahi se toh dal"})
+            #messages.info(request, f'account done not exit plz sign in')
+    form = AuthenticationForm()
+    return render(request, 'bricks/login.html') 
 def home(request):
     y=category.objects.all()
     p=land.objects.all()

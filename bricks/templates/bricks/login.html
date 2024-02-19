@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            font-size: 4vw;
+            margin: 1vh 1vw;
+            background: linear-gradient(to left, #33ccff 0%, #ff99cc 100%);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            text-decoration: underline;
+            color: #f4f4f4;
+        }
+
+        .Login {
+            font-size: 2vw;
+            width: 40vw;
+            margin: 3vh auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "bricks/navbar.html" %}
+    <div class="Login">
+        <h2 style="text-align: center;">Login page</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br><br>
+            <button class="btn btn-outline-success btn-lg" style="cursor:pointer ;" type="submit">Login</button>
+        </form>
+    </div>
+    <div>
+        {% if Alert%}
+        <h1 style="color: whitesmoke;text-align: center;background-color: red;padding-top: 10px;padding-bottom: 10px;">
+            {{Alert}}</h1>
+        {% endif %}
+    </div>
+</body>
+
+</html>
