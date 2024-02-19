@@ -1,59 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'bricks/style_home.css' %}" />
 
-    <title>home</title>
-  </head>
-  <body>
-    {% include "bricks/navbar.html" %}
-    <h1>Welcome to home page</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'bricks/style_home.css' %}" />
 
-    <div class="main">
-      {% if y %} {% for x in y %}
-      <a href="{% url 'properties' %}?category={{x.id}}" id="cat">
-        <div class="heading">{{x.cat}}</div>
-      </a>
-      {% endfor %} {% endif %}
-    </div>
+  <title>home</title>
+</head>
 
-    <div class="properties">
-      {% if obj %} {% for y in obj %}
-        <div class="property">
-          <div class="info_items"><img src="{{y.images.url}}" alt=""></div>
-          <div class="info_items">On - {{y.cat}}</div>
-          <div class="info_items">Area -  {{y.area}}</div>
-          <div class="info_items">Land Type - {{y.land_type}}</div>
-          {% if y.cat.cat == "Rent" or y.cat.cat == "PG" %}
-            <div class="info_items">Monthly Rent - &#8377 {{y.price}}</div>
-          {% else %}
-            <div class="info_items">Price - &#8377 {{y.price}}</div>
-          {% endif %}
-          <a href="{% url 'property_details' y.id %}?p_type={{y.p_type}}" id="details_button">Get Details</a> 
-        </div>
-      {% endfor %}
+<body>
+  {% include "bricks/navbar.html" %}
+  <h1>Welcome to home page</h1>
+
+  <div class="main">
+    {% if y %} {% for x in y %}
+    <a href="{% url 'properties' %}?category={{x.id}}" id="cat">
+      <div class="heading">{{x.cat}}</div>
+    </a>
+    {% endfor %} {% endif %}
+  </div>
+
+  <div class="properties" style="background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);margin: 2vh 2vw;padding: 2vh 0vw;">
+    {% if obj %} {% for y in obj %}
+    <div class="property">
+      <div class="info_items"><img src="{{y.images.url}}" alt=""></div>
+      <div class="info_items">On - {{y.cat}}</div>
+      <div class="info_items">Area - {{y.area}}</div>
+      <div class="info_items">Land Type - {{y.land_type}}</div>
+      {% if y.cat.cat == "Rent" or y.cat.cat == "PG" %}
+      <div class="info_items">Monthly Rent - &#8377 {{y.price}}</div>
+      {% else %}
+      <div class="info_items">Price - &#8377 {{y.price}}</div>
       {% endif %}
-
-      {% if obj2 %}
-      {% for y in obj2 %}
-        <div class="property">
-          <div class="info_items"><img src="{{y.images.url}}" alt=""></div>
-          <div class="info_items">On - {{y.cat}}</div>
-          <div class="info_items">Area -  {{y.area}}</div>
-          <div class="info_items">Age of Construction - {{y.age}}</div>
-          {% if y.cat.cat == "Rent" or y.cat.cat == "PG" %}
-            <div class="info_items">Monthly Rent - &#8377 {{y.price}}</div>
-          {% else %}
-            <div class="info_items">Price - &#8377 {{y.price}}</div>
-          {% endif %}          
-          <a href="{% url 'property_details' y.id %}?p_type={{y.p_type}}" id="details_button">Get Details</a> 
-        </div>
-      {% endfor %}
-     {% endif %}
+      <a href="{% url 'property_details' y.id %}?p_type={{y.p_type}}" id="details_button">Get Details</a>
     </div>
-    
-  </body>
+    {% endfor %}
+
+    {% else %}
+    <h1 style="font-size: 3vw;text-align: center;">No Record Found</h1>
+    {% endif %}
+
+    {% if obj2 %}
+    {% for y in obj2 %}
+    <div class="property">
+      <div class="info_items"><img src="{{y.images.url}}" alt=""></div>
+      <div class="info_items">On - {{y.cat}}</div>
+      <div class="info_items">Area - {{y.area}}</div>
+      <div class="info_items">Age of Construction - {{y.age}}</div>
+      {% if y.cat.cat == "Rent" or y.cat.cat == "PG" %}
+      <div class="info_items">Monthly Rent - &#8377 {{y.price}}</div>
+      {% else %}
+      <div class="info_items">Price - &#8377 {{y.price}}</div>
+      {% endif %}
+      <a href="{% url 'property_details' y.id %}?p_type={{y.p_type}}" id="details_button">Get Details</a>
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+
+</body>
+
 </html>
