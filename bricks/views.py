@@ -34,10 +34,23 @@ def built_details(request):
 def properties(request):
     x=request.GET.get('category')
     obj=get_object_or_404(category, pk=x)
-    print (obj)
+    # print (obj)
     p=land.objects.filter(cat__cat=obj.cat)
     q=built.objects.filter(cat__cat=obj.cat)
     y=category.objects.all()
     print(p.count())
     return render(request,'bricks/properties.html',{"obj":p,"obj2":q,"y":y,"current_cat":obj.cat})
     
+def property_details(request,property_id):
+    # property_id=request.GET.get('property_id')
+    p_type=request.GET.get('p_type')
+    is_land = True
+    if p_type == "Built" :
+        # print("Built")
+        is_land=False
+        obj=built.objects.filter(pk=property_id)
+    else: 
+        # print ("Unknown property")
+        obj=land.objects.filter(pk=property_id)
+    
+    return render(request,'bricks/property_details.html',{"obj":obj[0],"is_land":is_land})

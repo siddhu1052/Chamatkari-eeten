@@ -41,7 +41,7 @@
           {% else %}
             <div class="info_items">Price - &#8377 {{y.price}}</div>
           {% endif %}
-          <button id="details_button">Get Details</button>
+          <a href="{% url 'property_details' y.id %}?p_type={{y.p_type}}" id="details_button">Get Details</a> 
         </div>
       {% endfor %}
       {% endif %}
@@ -58,7 +58,7 @@
           {% else %}
             <div class="info_items">Price - &#8377 {{y.price}}</div>
           {% endif %}          
-          <button id="details_button">Get Details</button> 
+          <a href="{% url 'property_details' y.id %}?p_type={{y.p_type}}" id="details_button">Get Details</a> 
         </div>
       {% endfor %}
      {% endif %}

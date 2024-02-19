@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bricks/style_property_details.css' %}" />
+</head>
+<body>
+    <div class="full_details">   
+        {% if island %}
+        <div class="part1">
+            <div class="element"><img src="{{obj.images.url}}" alt=""></div>
+        </div>
+        <div class="part2">
+            <div class="element">On - {{obj.cat}}</div>
+            <div class="element">Area - {{obj.are}}</div>
+            <div class="element">Land Type - {{obj.land_type}}</div>
+            <div class="element">Price - {{obj.price}}</div>
+            <div class="element">Address - {{obj.address}}</div>
+        </div>
+        {% else %}
+        <div class="part1">
+            <div class="element"><img src="{{obj.images.url}}" alt=""></div>
+        </div>
+        <div class="part2">
+            <div class="element">On - {{obj.cat}}</div>
+            <div class="element">Area - {{obj.area}}</div>
+            <div class="element">Floors - {{obj.floors}}</div>
+            <div class="element">Furnished Status - {{obj.furnished_status}}</div>
+            <div class="element">Type of ownership - {{obj.type_of_ownership}}</div>
+            <div class="element">Age of Construction - {{obj.age}}</div>
+            <div class="element">Price - {{obj.price}}</div>
+            <div class="element">Address - {{obj.address}}</div>
+        </div>
+        
+        {% endif %}
+    </div>
+    <div class="options">
+        <button>Check Availability</button>
+        <button>Contact Owner</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.full_details{
+    display:flex;
+    background-color: aquamarine;
+}
+.part1{
+    max-width: fit-content;
+    background-color: blue;
+    flex:1;
+    padding:2vw;
+}
+.part2{
+    background-color: red;
+    flex:1;
+    padding: 2vw;
+}
+.options>button{
+    margin: 2vh;
+    border-radius: 1vw;
+    height: 4vw;
+    min-width: fit-content;
+    width: 10vw;
+    
+    font-size: 1.5vw;
+}
+
+.options>button:hover{
+    background-color: brown;
+}
+
+
+

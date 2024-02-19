@@ -28,6 +28,7 @@ urlpatterns = [
     path('land_details',views.land_details,name='land_details'),
     path('built_details',views.built_details,name='built_details'),
     path('properties',views.properties,name='properties'),
+    path('property_details/<str:property_id>/',views.property_details,name='property_details'),
 ]
 
 
