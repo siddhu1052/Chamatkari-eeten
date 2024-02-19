@@ -1,17 +1,26 @@
 .full_details{
     display:flex;
+    width: 50vw;
+    height: 60vh;
     background-color: aquamarine;
+    border: solid $b rgba(#000, .2);
+    border-radius:2vw;
+    box-shadow: 0.1vw 0.1vw 2vw black;
+    overflow: hidden;
 }
 .part1{
+    box-sizing: border-box;
     max-width: fit-content;
     background-color: blue;
     flex:1;
     padding:2vw;
 }
 .part2{
-    background-color: red;
+    box-sizing: border-box;
+    background: url("https://cdn.pixabay.com/photo/2014/02/05/12/23/brick-258938_960_720.jpg");
     flex:1;
     padding: 2vw;
+    
 }
 .options>button{
     margin: 2vh;
@@ -20,10 +29,14 @@
     min-width: fit-content;
     width: 10vw;
     font-size: 1.5vw;
+    background: none;
+    border: none;
+    background: rgb(0, 0, 0, 0.4);
 }
 
 .options>button:hover{
-    background-color: brown;
+    background: rgba(0 ,0 , 0 , 0.9);
+    color: antiquewhite;
 }
 
 
@@ -32,8 +45,8 @@ body {
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
-    background-image: url("https://cdn.pixabay.com/photo/2021/08/20/14/53/monastery-6560623_960_720.jpg");
-    background-size: contain;
+    background-image: url("https://cdn.pixabay.com/photo/2017/08/03/15/38/architecture-2576906_640.jpg");
+    background-size:100% 100%;
     background-repeat: no-repeat;
 }
 
