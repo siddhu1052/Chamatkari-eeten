@@ -43,6 +43,7 @@ class category(models.Model):
         return self.cat
 
 class built(models.Model):
+    name=models.CharField(max_length=500,blank=False,null=True,default=None)
     cat=models.ForeignKey("category", null=True , on_delete=models.CASCADE, default=None)
     area=models.IntegerField()
     floors=models.IntegerField()
@@ -64,6 +65,7 @@ t_l = (
 )
 
 class land(models.Model):
+    name=models.CharField(max_length=500,blank=False,null=True,default=None)
     cat=models.ForeignKey("category", null=True , on_delete=models.CASCADE, default=None)
     area=models.IntegerField(default=0)
     land_type=models.CharField(choices=t_l, max_length=50, default= None, null=True)
