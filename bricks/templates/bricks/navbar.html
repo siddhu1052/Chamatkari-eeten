@@ -31,20 +31,13 @@
         );
         animation: gradient 15s ease infinite;
 
-        @keyframes gradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
+        
       "
     >
       <a class="navbar-brand" style="color:white;">Magical Bricks</a>
+      
+      <a class="btn btn-outline-success" href="/login/" id="login">Login</a>
+      
       <form class="form-inline">
         <input
           class="form-control mr-sm-2"
@@ -63,8 +56,10 @@
       </form>
     </nav>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Boostrap</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="
+      background-color: gradient
+    ">
+      <a class="navbar-brand" href="home">Home</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -109,9 +104,7 @@
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="btn btn-outline-success" href="/login/">Login</a>
-          </li>
+          
         </ul>
       </div>
     </nav>
