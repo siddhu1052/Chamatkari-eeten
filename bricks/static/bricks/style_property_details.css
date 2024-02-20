@@ -18,8 +18,8 @@
     margin-left: 1vw;
     /* background: url("https://cdn.pixabay.com/photo/2014/02/05/12/23/brick-258938_960_720.jpg"); */
 
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     
     padding-bottom: 1vh;
     border-radius: 8px;
