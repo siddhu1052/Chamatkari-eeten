@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,12 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'bricks/style_property_details.css' %}" />
 </head>
+
 <body>
-    <div class="full_details">   
+    <div class="full_details">
         {% if island %}
         <div class="part1">
-            <div class="element"><img src="{{obj.images.url}}" alt=""></div>
+            <img style="width: 100%;height: 100%;" src="{{obj.images.url}}" alt="">
         </div>
         <div class="part2">
             <div class="element">On - {{obj.cat}}</div>
@@ -22,19 +24,19 @@
         </div>
         {% else %}
         <div class="part1">
-            <div class="element"><img src="{{obj.images.url}}" alt=""></div>
+            <img style="width: 100%;height: 100%;" src="{{obj.images.url}}" alt="">
         </div>
         <div class="part2">
-            <div class="element">On - {{obj.cat}}</div>
-            <div class="element">Area - {{obj.area}}</div>
-            <div class="element">Floors - {{obj.floors}}</div>
-            <div class="element">Furnished Status - {{obj.furnished_status}}</div>
-            <div class="element">Type of ownership - {{obj.type_of_ownership}}</div>
-            <div class="element">Age of Construction - {{obj.age}}</div>
-            <div class="element">Price - {{obj.price}}</div>
-            <div class="element">Address - {{obj.address}}</div>
+            <h2 style="text-align: center;">On - {{obj.cat}}</h2>
+            <div>Area - {{obj.area}}</div>
+            <div >Floors - {{obj.floors}}</div>
+            <div >Furnished Status - {{obj.furnished_status}}</div>
+            <div >Type of ownership - {{obj.type_of_ownership}}</div>
+            <div >Age of Construction - {{obj.age}}</div>
+            <div >Price - {{obj.price}}</div>
+            <div >Address - {{obj.address}}</div>
         </div>
-        
+
         {% endif %}
     </div>
     <div class="options">
@@ -42,4 +44,5 @@
         <button>Contact Owner</button>
     </div>
 </body>
+
 </html>
