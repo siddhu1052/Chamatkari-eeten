@@ -2,7 +2,7 @@
     display:flex;
     width: 50vw;
     height: 60vh;
-    background-color: aquamarine;
+    
     border: solid $b rgba(#000, .2);
     border-radius:2vw;
     box-shadow: 0.1vw 0.1vw 2vw black;
@@ -11,13 +11,16 @@
 .part1{
     box-sizing: border-box;
     max-width: fit-content;
-    background-color: blue;
     flex:1;
     padding:2vw;
+    -webkit
+    -webkit-backdrop-filter: blur(5px);
+    /* filter: blur(5px); */
 }
 .part2{
     box-sizing: border-box;
-    background: url("https://cdn.pixabay.com/photo/2014/02/05/12/23/brick-258938_960_720.jpg");
+    background-image: linear-gradient(-90deg,rgba(255,0,0,1), rgba(255,225,1,1));
+    /* background: url("https://cdn.pixabay.com/photo/2014/02/05/12/23/brick-258938_960_720.jpg"); */
     flex:1;
     padding: 2vw;
     
