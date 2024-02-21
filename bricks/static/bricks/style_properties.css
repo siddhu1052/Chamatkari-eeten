@@ -81,4 +81,8 @@
         padding: 3vh 3vh;
         /* padding:auto; */
     }
+    .main{
+        display: flex;
+        height: 5vh;
+    }
   }

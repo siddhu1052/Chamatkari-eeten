@@ -3,29 +3,12 @@ from .form import *
 from .models import *
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate , login ,logout 
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
-
 # Create your views
-def Login(request):
-    if request.method == 'POST':
-  
-        # AuthenticationForm_can_also_be_used__
-        Name=request.POST['username']
-        username = request.POST['username']
-        
-        password = request.POST['password']
-        user = authenticate(request, username = username, password = password)
-        if user is not None:
-            form = login(request, user)
-            #messages.success(request, f' welcome {username} !!')
-            return redirect('/')
-        else:
-            return render(request, 'bricks/login.html',{'Alert':"Username or password sahi se toh dal"})
-            #messages.info(request, f'account done not exit plz sign in')
-    form = AuthenticationForm()
-    return render(request, 'bricks/login.html') 
+
 def home(request):
     y=category.objects.all()
     p=land.objects.all()
@@ -75,3 +58,41 @@ def property_details(request,property_id):
         obj=land.objects.filter(pk=property_id)
     
     return render(request,'bricks/property_details.html',{"obj":obj[0],"is_land":is_land})
+
+def Login(request):
+    if request.method == 'POST':
+  
+        # AuthenticationForm_can_also_be_used__
+        Name=request.POST['username']
+        username = request.POST['username']
+        
+        password = request.POST['password']
+        user = authenticate(request, username = username, password = password)
+        if user is not None:
+            form = login(request, user)
+            #messages.success(request, f' welcome {username} !!')
+            return redirect('/')
+        else:
+            return render(request, 'bricks/login.html',{'Alert':"Username or password sahi se toh dal"})
+            #messages.info(request, f'account done not exit plz sign in')
+    form = AuthenticationForm()
+    return render(request, 'bricks/login.html') 
+
+def signup(request):
+    if request.method== 'GET':
+        return render(request, 'bricks/signup.html',{'frm':UserCreationForm()});
+    else:
+        print ('hello')
+        a=request.POST.get('username')
+        b=request.POST.get('password1')
+        c=request.POST.get('password2')
+        if b==c:
+            if(User.objects.filter(username =a)):
+                return render(request,'bricks/signup.html',{'frm':UserCreationForm(),'error':'username already exists'})
+            else:
+                user=User.objects.create_user(username=a, password=b);
+                user.save()
+                login(request,user)
+                return redirect('home')
+        else:
+            return render(request,'bricks/signup.html',{'frm':UserCreationForm(),'error':'password mismatch'})
