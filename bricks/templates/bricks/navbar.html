@@ -1,22 +1,18 @@
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-    <title>Document</title>
-  </head>
 
-  <body>
-    <nav
-      class="navbar navbar-light justify-content-between"
-      style="
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-light justify-content-between" style="
         background: linear-gradient(
           90deg,
           #000,
@@ -29,83 +25,58 @@
         animation: gradient 15s ease infinite;
 
         
-      "
-    >
-      <a class="navbar-brand" style="color:white;">Magical Bricks</a>
-      
-      <a class="btn btn-outline-success" href="/login/" id="login">Login</a>
-      
-      <form class="form-inline">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          style="
+      ">
+    <a class="navbar-brand" style="color:white;">Magical Bricks</a>
+
+    <a class="btn btn-outline-success" href="/login/" id="login">Login</a>
+
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="
           color:white;
           background: rgba(103,48,167,0.5);
-          "
-        />
+          " />
 
-        <button class="button type="button" class="btn btn-info" type="submit">
-          Search
-        </button>
-      </form>
-    </nav>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="
-      background: linear-gradient(0deg,#ccccff,#f4f4f4,#f4f4f4,#f4f4f4,#ffff,#ccccff);
-      height:fit-content;
-    ">
-      <a class="navbar-brand" href="home">Home</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-
-      >
-        <span class="navbar-toggler-icon"></span>
+      <button class="button type=" button" class="btn btn-info" type="submit">
+        Search
       </button>
+    </form>
+  </nav>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent"  z-index: 0 style="background-color:white;">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Now<span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Can</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Use</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:white;">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          
-        </ul>
-      </div>
-    </nav>
-  </body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" 
+    >
+    <a class="navbar-brand" href="home">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" z-index: 0 >
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Now<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Can</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Use</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:white;">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+</body>
+
 </html>
