@@ -31,6 +31,8 @@ urlpatterns = [
     path('built_details',views.built_details,name='built_details'),
     path('properties',views.properties,name='properties'),
     path('property_details/<str:property_id>/',views.property_details,name='property_details'),
+    path('logout_user',views.logout_user,name='logout_user'),
+    
 ]
 
 

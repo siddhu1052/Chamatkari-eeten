@@ -13,7 +13,18 @@ def home(request):
     y=category.objects.all()
     p=land.objects.all()
     q=built.objects.all()
-    return render(request,'bricks/home.html',{"obj":p,"obj2":q,"y":y})
+    if request.method== 'GET':
+        return render(request,'bricks/home.html',{"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
+    else:
+        a=request.POST.get('username')
+        b=request.POST.get('password')
+        user=authenticate(request,username=a,password=b)
+        if user is None:
+            return render(request,'bricks/home.html',{"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm(),"error":"Username or Password not correct"})
+        else :
+            login(request, user)
+            return render(request,'bricks/home.html',{"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
+    return render(request,'bricks/home.html',{"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
 
 def land_details(request):
     if(request.method=='GET'):
@@ -44,7 +55,8 @@ def properties(request):
     y=category.objects.all()
     print(p.count())
     return render(request,'bricks/properties.html',{"obj":p,"obj2":q,"y":y,"current_cat":obj.cat})
-    
+
+# @login_required (login_url='/login/')
 def property_details(request,property_id):
     # property_id=request.GET.get('property_id')
     p_type=request.GET.get('p_type')
@@ -96,3 +108,11 @@ def signup(request):
                 return redirect('home')
         else:
             return render(request,'bricks/signup.html',{'frm':UserCreationForm(),'error':'password mismatch'})
+
+def logout_user(request):
+    if request.method == 'GET':
+        logout(request)
+        y=category.objects.all()
+        p=land.objects.all()
+        q=built.objects.all()
+        return redirect('home')
