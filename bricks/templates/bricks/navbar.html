@@ -13,6 +13,7 @@
 
 <body>
   <nav class="navbar navbar-light justify-content-between" style="
+  display:block;
         background: linear-gradient(
           90deg,
           #000,
@@ -28,9 +29,28 @@
       ">
     <a class="navbar-brand" style="color:white;">Magical Bricks</a>
 
-    <a class="btn btn-outline-success" href="/login/" id="login">Login</a>
+    <a class="btn btn-outline-success right-align" href="/login/" id="login" style="float:inline-end;">Login</a>
 
-    <form class="form-inline">
+    <form class="form-inline" id="search_form" >
+      <style>
+        @media only screen and (min-width:600px) {
+          #search_form{
+            float:inline-end;
+          }
+        }
+        @media only screen and (max-width:600px) {
+          #search_form>input{
+          width:75vw;
+          flex:1;
+        }
+        #search_form>button{
+          width:fit-content;
+        }
+        }
+        
+      </style>
+    
+    
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="
           color:white;
           background: rgba(103,48,167,0.5);
