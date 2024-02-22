@@ -30,8 +30,8 @@
     <a class="navbar-brand" style="color:white;">Magical Bricks</a>
 
     {%if user.is_authenticated%}
-      <p class="px-2 mt-2">Welcome <b>{{user.username}}</b></p>
-      <a class="btn btn-primary" type="submit" id="login" href='{%url 'logout_user'%}'>logout</a>
+      <a class="btn btn-primary" type="submit" id="login" href='{%url 'logout_user'%}' style="width:fit-content; float:right;">logout</a>
+      <p class="px-2 mt-2" style="width:fit-content; float:right; color:white;" >Welcome {{user.username}}</p>
     {% else %}
       {% comment %} <a class="btn btn-outline-success right-align" href="/login/" id="login" style="float:inline-end;">Log in</a> {% endcomment %}
       <button id="login" type="button" class="btn btn-outline-success right-align"  data-toggle="modal"  data-target="#login_div" style="float:inline-end;">
@@ -42,7 +42,6 @@
       </button>
     {% endif %}
 
-    <form class="form-inline" id="search_form" >
       <style>
         @media only screen and (min-width:600px) {
           #search_form{
@@ -51,23 +50,28 @@
         }
         @media only screen and (max-width:600px) {
           #search_form>input{
-          width:75vw;
           flex:1;
         }
+        form{
+          width:100%;
+          display:flex;
+        }
+        
         #search_form>button{
           width:fit-content;
         }
         }
         
       </style>
-    
-    
+  
+
+      <form class="form-inline" id="search_form" >    
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="
           color:white;
           background: rgba(103,48,167,0.5);
           " />
 
-      <button class="button type=" button" class="btn btn-info" type="submit">
+      <button class="button type=" button" class="btn btn-primary" type="submit">
         Search
       </button>
     </form>
