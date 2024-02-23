@@ -43,6 +43,9 @@
     {% endif %}
 
       <style>
+        #s_button{
+          height: 100%;
+        }
         @media only screen and (min-width:600px) {
           #search_form{
             float:inline-end;
@@ -66,12 +69,12 @@
   
 
       <form class="form-inline" id="search_form" >    
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="
           color:white;
           background: rgba(103,48,167,0.5);
           " />
 
-      <button class="button type=" button" class="btn btn-primary" type="submit">
+      <button class="button " class="btn btn-primary" type="submit" id="s_button">
         Search
       </button>
     </form>
