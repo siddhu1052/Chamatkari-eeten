@@ -30,45 +30,51 @@
     <a class="navbar-brand" style="color:white;">Magical Bricks</a>
 
     {%if user.is_authenticated%}
-      <a class="btn btn-primary" type="submit" id="login" href='{%url 'logout_user'%}' style="width:fit-content; float:right;">logout</a>
-      <p class="px-2 mt-2" style="width:fit-content; float:right; color:white;" >Welcome {{user.username}}</p>
+    <a class="btn btn-primary" type="submit" id="login" href='{%url ' logout_user'%}'
+      style="width:fit-content; float:right;">logout</a>
+    <p class="px-2 mt-2" style="width:fit-content; float:right; color:white;">Welcome {{user.username}}</p>
     {% else %}
-      {% comment %} <a class="btn btn-outline-success right-align" href="/login/" id="login" style="float:inline-end;">Log in</a> {% endcomment %}
-      <button id="login" type="button" class="btn btn-outline-success right-align"  data-toggle="modal"  data-target="#login_div" style="float:inline-end;">
-        Login
-      </button>
-      <button id="login" type="button" class="btn btn-outline-success right-align"  data-toggle="modal"  data-target="#signup_div" style="float:inline-end;">
-        Signup
-      </button>
+    {% comment %} <a class="btn btn-outline-success right-align" href="/login/" id="login" style="float:inline-end;">Log
+      in</a> {% endcomment %}
+    <button id="login" type="button" class="btn btn-outline-success right-align" data-toggle="modal"
+      data-target="#login_div" style="float:inline-end;">
+      Login
+    </button>
+    <button id="login" type="button" class="btn btn-outline-success right-align" data-toggle="modal"
+      data-target="#signup_div" style="float:inline-end;">
+      Signup
+    </button>
     {% endif %}
 
-      <style>
-        #s_button{
-          height: 100%;
-        }
-        @media only screen and (min-width:600px) {
-          #search_form{
-            float:inline-end;
-          }
-        }
-        @media only screen and (max-width:600px) {
-          #search_form>input{
-          flex:1;
-        }
-        form{
-          width:100%;
-          display:flex;
-        }
-        
-        #search_form>button{
-          width:fit-content;
-        }
-        }
-        
-      </style>
-  
+    <style>
+      #s_button {
+        height: 100%;
+      }
 
-      <form class="form-inline" id="search_form" >    
+      @media only screen and (min-width:600px) {
+        #search_form {
+          float: inline-end;
+        }
+      }
+
+      @media only screen and (max-width:600px) {
+        #search_form>input {
+          flex: 1;
+        }
+
+        form {
+          width: 100%;
+          display: flex;
+        }
+
+        #search_form>button {
+          width: fit-content;
+        }
+      }
+    </style>
+
+
+    <form class="form-inline" id="search_form">
       <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="
           color:white;
           background: rgba(103,48,167,0.5);
@@ -80,15 +86,14 @@
     </form>
   </nav>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" 
-    >
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="home">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent" z-index: 0 >
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" z-index: 0>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">Now<span class="sr-only">(current)</span></a>
@@ -116,55 +121,68 @@
     </div>
   </nav>
   <!-- Modal -->
-<div class="modal fade" style="-webkit-backdrop-filter: blur(5px);backdrop-filter: blur(5px);" id="login_div" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Login to Your Account</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="" method='post'>
-          {% csrf_token %}
-          {{login_form}}
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Login</button>
+  <div class="modal fade" style="-webkit-backdrop-filter: blur(5px);backdrop-filter: blur(5px);" id="login_div"
+    tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style="background: none;">
+        <div class="modal-header" style="background: linear-gradient(
+        90deg,
+        #000,
+        #000,#00ffff,
+        #1c36da,
+        #4b87dc,
+        #006600,
+        #32040b
+      );">
+          <h5 style="font-size: 3vw;color: #fff;" class="modal-title" id="exampleModalLongTitle">Login to Your Account
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-      </form>
-        
-      </div>
-      
-    </div>
-  </div>
-</div>
+        <div class="modal-body">
+          <form action="" method='post'>
+            {% csrf_token %}
+            <div style="color: #fff;font-size: 1.5vw;">
+            {{login_form}}</div>
+            <div class="modal-footer">
+              <button style="cursor: pointer;" type="button" class="btn btn-secondary"
+                data-dismiss="modal">Close</button>
+              <button style="cursor: pointer;" type="submit" class="btn btn-primary">Login</button>
+            </div>
+          </form>
 
-<div class="modal fade" style="-webkit-backdrop-filter: blur(5px);backdrop-filter: blur(5px);" id="signup_div" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Create your Account</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="" method='post'>
-          {% csrf_token %}
-          {{signup_form}}
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Signup</button>
         </div>
-      </form>
-        
+
       </div>
-      
     </div>
   </div>
-</div>
+
+  <div class="modal fade" style="-webkit-backdrop-filter: blur(5px);backdrop-filter: blur(5px);" id="signup_div"
+    tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Create your Account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method='post'>
+            {% csrf_token %}
+            {{signup_form}}
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Signup</button>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 </body>
 
