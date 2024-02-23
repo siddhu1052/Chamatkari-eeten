@@ -161,9 +161,17 @@
   <div class="modal fade" style="-webkit-backdrop-filter: blur(5px);backdrop-filter: blur(5px);" id="signup_div"
     tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Create your Account</h5>
+      <div class="modal-content" style="background: none;background-color: #212121;">
+        <div class="modal-header" style="background: linear-gradient(
+          90deg,
+          #000,
+          #000,#00ffff,
+          #1c36da,
+          #4b87dc,
+          #006600,
+          #32040b
+        );">
+          <h5 style="font-size: 3vw;color: #fff;" class="modal-title" id="exampleModalLongTitle">Create your Account</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -171,7 +179,8 @@
         <div class="modal-body">
           <form action="" method='post'>
             {% csrf_token %}
-            {{signup_form}}
+            <div style="font-size: 1.5vw;color: #fff;">
+            {{signup_form}}</div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-primary">Signup</button>
