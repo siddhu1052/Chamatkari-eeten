@@ -38,9 +38,6 @@
       <a href="{% url 'property_details' y.id %}?p_type={{y.p_type}}" id="details_button">Get Details</a>
     </div>
     {% endfor %}
-
-    {% else %}
-    <h1 >No Record Found</h1>
     {% endif %}
 
     {% if obj2 %}
@@ -60,7 +57,18 @@
     {% endfor %}
     {% endif %}
   </div>
-
+  {% if boj or obj2 %}
+    
+    {% else %}
+    <style>
+      .properties{
+        display:none;
+      }
+    </style>
+    <div class="property">
+      <h1>No Record Found</h1>
+    </div>      
+    {% endif %}
 </body>
 
 </html>
