@@ -50,7 +50,7 @@ button:active {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
     margin: 2vh 2vw;
     width:fit-content;
-    max-width: 100%;
+    max-width: auto;
     height: fit-content;
     }
 
