@@ -63,7 +63,7 @@ button:active {
     border-radius: 4vw;
     margin: 0.75vw;
     padding: 3vh 3vh;
-    min-height: fit-content;
+    height: fit-content;
 
     width: 30vw;
     /* padding:auto; */
@@ -82,16 +82,15 @@ button:active {
 .imgs{
     border: 0.2vw solid rgb(6, 4, 40);;
     border-radius: 2vw;
-    dispay:flex;
+    display:inline-flex;
     overflow: hidden;
     box-sizing: border-box;
-    width:100%;
-    height: 50%;
+    width: 100%;
+    height: 35vh;
     margin-bottom: 3%;
 }
 
 .imgs>img{
-    display: flex;
     width:100%;
     height: 100%; 
     object-fit:fit;
