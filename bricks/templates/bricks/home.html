@@ -26,7 +26,7 @@
   <div class="properties" >
     {% if obj %} {% for y in obj %}
     <div  class="property">
-      <div class="info_items"><img  src="{{y.images.url}}" alt=""></div>
+      <div class="imgs"><img  src="{{y.images.url}}" alt=""></div>
       <div class="info_items">On - {{y.cat}}</div>
       <div class="info_items">Area - {{y.area}}</div>
       <div class="info_items">Land Type - {{y.land_type}}</div>
@@ -35,7 +35,12 @@
       {% else %}
       <div class="info_items">Price - &#8377 {{y.price}}</div>
       {% endif %}
-      <a href="{% url 'property_details' y.id %}?p_type={{y.p_type}}" id="details_button">Get Details</a>
+
+      <a href="{% url 'property_details' y.id %}?p_type={{y.p_type}}" id="details_button">
+        <div id="details_button">
+          Get Details
+        </div>
+      </a>
     </div>
     {% endfor %}
     {% endif %}
@@ -43,7 +48,7 @@
     {% if obj2 %}
     {% for y in obj2 %}
     <div  class="property">
-      <div class="info_items"><img  src="{{y.images.url}}" alt=""></div>
+      <div class="imgs"><img  src="{{y.images.url}}" alt=""></div>
       <div class="info_items">On - {{y.cat}}</div>
       <div class="info_items">Area - {{y.area}}</div>
       <div class="info_items">Age of Construction - {{y.age}}</div>
@@ -52,7 +57,11 @@
       {% else %}
       <div class="info_items">Price - &#8377 {{y.price}}</div>
       {% endif %}
-      <a href="{% url 'property_details' y.id %}?p_type={{y.p_type}}" id="details_button">Get Details</a>
+      <a href="{% url 'property_details' y.id %}?p_type={{y.p_type}}" id="details_button">
+        <div id="details_button">
+          Get Details
+        </div>
+      </a>
     </div>
     {% endfor %}
     {% endif %}
