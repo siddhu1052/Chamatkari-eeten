@@ -1,5 +1,7 @@
 from django.db import models
-
+from django.contrib.auth import authenticate , login ,logout 
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 choice = (
     ('Rent','Rent'),
     ('Sale','Sale'),
@@ -43,9 +45,11 @@ class category(models.Model):
         return self.cat
 
 class built(models.Model):
+    
     name=models.CharField(max_length=500,blank=False,null=True,default=None)
     owner_phone=models.IntegerField(null=True, blank=False)
     owner_name=models.CharField(max_length=500,blank=False,null=True,default=None)
+    owner_mail=models.EmailField(max_length=500,blank=False,null=True)
     cat=models.ForeignKey("category", null=True , on_delete=models.CASCADE, default=None)
     area=models.IntegerField()
     floors=models.IntegerField()
@@ -57,7 +61,7 @@ class built(models.Model):
     price=models.FloatField(default=0,null=True)
     age=models.IntegerField()
     address=models.CharField(max_length=200, blank= False, default=None, null=True, unique=True)
-    images=models.ImageField(upload_to='images/')
+    image=models.ImageField(upload_to='images/')
     def __str__(self): 
         return self.address
 
@@ -71,6 +75,7 @@ class land(models.Model):
     cat=models.ForeignKey("category", null=True , on_delete=models.CASCADE, default=None)
     owner_phone=models.IntegerField(null=True, blank=False)
     owner_name=models.CharField(max_length=500,blank=False,null=True,default=None)
+    owner_mail=models.EmailField(max_length=500,blank=False,null=True)
     area=models.IntegerField(default=0)
     land_type=models.CharField(choices=t_l, max_length=50, default= None, null=True)
     price=models.FloatField(default=0)
@@ -78,7 +83,7 @@ class land(models.Model):
     # EMI=models.BooleanField(blank=False, null=False, default=False)
     # EMI_rate=models.IntegerField(blank=True,null=True, default=None)
     address=models.CharField(max_length=200, blank= False, default=None, null=False, unique=True)
-    images=models.ImageField(upload_to='images/')
+    image=models.ImageField(upload_to='images/')
     def __str__(self): 
         return self.address
     
