@@ -30,7 +30,7 @@
       <div class="info_items">On - {{y.cat}}</div>
       <div class="info_items">Area - {{y.area}}</div>
       <div class="info_items">Land Type - {{y.land_type}}</div>
-      {% if y.cat.cat == "Rent" or y.cat.cat == "PG" %}
+      {% if y.cat.cat == "Rent" or y.cat.cat == "On_lease" %}
       <div class="info_items">Monthly Rent - &#8377 {{y.price}}</div>
       {% else %}
       <div class="info_items">Price - &#8377 {{y.price}}</div>

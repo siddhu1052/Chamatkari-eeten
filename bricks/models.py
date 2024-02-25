@@ -68,6 +68,7 @@ class built(models.Model):
 t_l = (
     ('Aggricultural','Aggrecultural') ,
     ('Residential','Residential') ,
+    ('Industrial','Industrial') ,
 )
 
 class land(models.Model):
