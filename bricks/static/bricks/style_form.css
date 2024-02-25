@@ -1,28 +1,28 @@
-form>div>input {
-    background-color: rgb(214, 17, 27);
+.myform>form>div>input {
+    background:linear-gradient(90deg,rgba(0,0,0, 0.5),rgba(34, 134, 222, 0.3),rgba(86, 31, 225, 0.3),rgba(0,0,0, 0.5));
     /* opacity: 0.2; */
-    border: 0.3vw  rgb(127, 6, 6);
+    border: 0.3vw  rgba(9, 2, 291,1);
+    border-radius: 4vw;
     border-style: groove;
 }
 
-form>div>label {
-    color: white
+.myform>form>div>label {
+    color: white;
+    text-shadow: 0.5vw 0.5vw 0.4vw #000000;
+    text-shadow: 0.6vw 0.6vw 0.4vw #000000;
+    text-shadow: 0.7vw 0.7vw 0.4vw #000000;
+    
 }
 
 
-input {
+
+.myform>input {
     border-radius: 5%;
     color: aliceblue;
 }
 
 
-body {
-    background-image: url("https://images.unsplash.com/photo-1707608079333-90cf44192c4e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-form {
+.myform>form {
     /* background-color: aquamarine; */
     -webkit-backdrop-filter: blur(9px);
     backdrop-filter: blur(9px);
@@ -30,7 +30,8 @@ form {
     box-sizing: border-box;
     width: fit-content;
     min-height: fit-content;
-
+    flex-direction: column;
+    background: rgba(0,0,0,0.5);
     margin: 0;
     position: absolute;
     top: 50%;
@@ -43,6 +44,7 @@ form {
     border-radius: 10%;
 }
 
-form>div {
+.myform>form>div {
     box-sizing: border-box;
 }
+

@@ -9,8 +9,21 @@
     <link rel="stylesheet" href="{% static 'bricks/style_form.css' %}" />
   </head>
   <body>
+    {% include "bricks/navbar.html" %}
     <div class="myform" >
       <form action="" method="post" id="myform" enctype="multipart/form-data">
+        <div
+          class="heading"
+          style="
+            color: white;
+            text-align: center;
+            font-size: 4vw;
+            font-family: 
+            font-family: cursive;
+          "
+        >
+          Add data for property
+        </div>
         {% csrf_token %} {{form}} <button type="submit">Submit</button>
       </form>
     </div>

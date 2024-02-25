@@ -8,10 +8,31 @@
     <link rel="stylesheet" href="{% static 'bricks/style_form.css' %}" />
   </head>
   <body>
+    {% include "bricks/navbar.html" %}
     <div class="myform">
       <form action="" method="post" id="myform">
+        <div
+          class="heading"
+          style="
+            color: white;
+            text-align: center;
+            font-size: 4vw;
+            font-family: 
+            font-family: cursive;
+          "
+        >
+          Add data for property
+        </div>
         {% csrf_token %} {{form}} <button type="Submit">Submit</button>
       </form>
     </div>
+    <style>
+      body {
+        background-image: url("https://cdn.pixabay.com/photo/2016/11/23/13/53/dark-1852985_1280.jpg");
+        {% comment %} background-repeat: no-repeat; {% endcomment %}
+        background-size: cover;
+
+      }
+    </style>
   </body>
 </html>
