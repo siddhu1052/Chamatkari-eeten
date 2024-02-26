@@ -21,6 +21,9 @@ def home(request):
         b=request.POST.get('password1')
         c=request.POST.get('password2')
         d=request.POST.get('password')
+        e=request.POST.get('email')
+        fn=request.POST.get('first_name')
+        ln=request.POST.get('last_name')
         
         if a and d:
             user=authenticate(request,username=a,password=d)
@@ -35,7 +38,7 @@ def home(request):
                 if(User.objects.filter(username =a)):
                     return render(request,'bricks/home.html',{'signup_form':UserForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
                 else:
-                    user=User.objects.create_user(username=a, password=b);
+                    user=User.objects.create_user(username=a, password=b, email=e,first_name=fn,last_name=ln);
                     user.save()
                     login(request,user)
                     return render(request,'bricks/home.html',{'signup_form':UserForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
