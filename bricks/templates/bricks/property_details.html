@@ -1,60 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'bricks/style_property_details.css' %}" />
-</head>
+    <link
+      rel="stylesheet"
+      href="{% static 'bricks/style_property_details.css' %}"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="full_details">
+      <div class="left_side">
         {% if island %}
         <div class="part1">
-            <img style="width: 100%;height: 100%;" src="{{obj.images.url}}" alt="">
+          <img src="{{obj.images.url}}" alt="" />
         </div>
         <div class="part2">
-            <p>On - {{obj.cat}}</p>
-            <p>Area - {{obj.are}}</p>
-            <p>Land Type - {{obj.land_type}}</p>
-            <p>Price - {{obj.price}}</p>
-            <p>Address - {{obj.address}}</p>
+          <p>On - {{obj.cat}}</p>
+          <p>Area - {{obj.are}}</p>
+          <p>Land Type - {{obj.land_type}}</p>
+          <p>Price - {{obj.price}}</p>
+          <p>Address - {{obj.address}}</p>
         </div>
         {% else %}
         <div class="part1">
-            <img style="width: 100%;height: 100%;" src="{{obj.image.url}}" alt="">
+          <img src="{{obj.image.url}}" alt="" />
         </div>
         <div class="part2">
-            <h2
-                style="text-align: center;background: linear-gradient(to left, #33ccff 0%, #ff99cc 50%);color: #212121;padding: 2vh 0vw;margin: 0;font-size: 3vw;">
-                On - {{obj.cat}}</h2>
-            <p>Area - {{obj.area}}</p>
-            <p>Floors - {{obj.floors}}</p>
-            <p>Furnished Status - {{obj.furnished_status}}</p>
-            <p>Type of ownership - {{obj.type_of_ownership}}</p>
-            <p>Age of Construction - {{obj.age}}</p>
-            <p>Price - {{obj.price}}</p>
-            <p>Address - {{obj.address}}</p>
+          <h2>On - {{obj.cat}}</h2>
+          <p>Area - {{obj.area}}</p>
+          <p>Floors - {{obj.floors}}</p>
+          <p>Furnished Status - {{obj.furnished_status}}</p>
+          <p>Type of ownership - {{obj.type_of_ownership}}</p>
+          <p>Age of Construction - {{obj.age}}</p>
+          <p>Price - {{obj.price}}</p>
+          <p>Address - {{obj.address}}</p>
         </div>
-
         {% endif %}
+        <div class="options">
+            <center>
+                <button>Check Availability</button>
+                <button>Contact Owner</button>
+            </center>
+        </div>
+      </div>
+      <div class="right_side"></div>
     </div>
-    <div style="display: block; height: 40vh;width: 48.2%;border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);padding: 1vw;margin: 2vh 0vw;-webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.967940910715!2d77.28117247480128!3d28.450382792330263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce0ab6fec0aab%3A0x87c9e10e1ae0b0fc!2sManav%20Rachna%20International%20Institute%20Of%20Research%20And%20Studies!5e0!3m2!1sen!2sin!4v1708419123580!5m2!1sen!2sin"
-            style="border:0;height: 100%;width: 100%;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <div class="options">
-        <center>
-            <button>Check Availability</button>
-            <button>Contact Owner</button>
-        </center>
-    </div>
-</body>
-
+  </body>
 </html>
