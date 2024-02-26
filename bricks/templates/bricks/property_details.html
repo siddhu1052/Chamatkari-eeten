@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="{% static 'bricks/style_property_details.css' %}" />
     <style>
         .chip {
-
+            position: fixed;
+            right: 0;
+            left: 65%;
             width: auto;
             height: auto;
-            margin: 0vh 2vw;
-            margin-top: 2vh;
+            
+            
+            /* margin-top: 2vh; */
 
             border-radius: 5%;
             background-color: #f1f1f1;
@@ -77,9 +80,9 @@
     </style>
 </head>
 
-<body>
+<body style="margin: 0;padding: 0;">
     <div class="full_details" style="width: 100%;height: 100%;">
-        <div class="left_side" style="width: 65%;border: 1px solid #ddd;border-radius: 5px;">
+        <div class="left_side" style="width: 65%;height: auto; border: 1px solid #ddd;border-radius: 5px;">
             {% if island %}
             <div class="part1" style="width: 100%;height: auto;">
                 <img src="{{obj.images.url}}" alt="" />
@@ -115,7 +118,7 @@
                 </center>
             </div>
         </div>
-        <div class="right_side" style="width: 35%;border: 1px solid #ddd;border-radius: 5px;">
+        <div class="right_side" style="width: 35%;height: auto; border: 1px solid #ddd;border-radius: 5px;">
             <div class="chip">
                 <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Person" width="96" height="96">
                 <!-- <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span> -->
