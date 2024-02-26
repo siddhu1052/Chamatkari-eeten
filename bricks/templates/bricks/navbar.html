@@ -32,7 +32,7 @@
     {%if user.is_authenticated%}
     <a class="btn btn-primary" type="submit" id="login" href='{%url 'logout_user' %}'
       style="width:fit-content; float:right;">logout</a>
-    <p class="px-2 mt-2" style="width:fit-content; float:right; color:white;">Welcome {{user.username}}</p>
+    <p class="px-2 mt-2" style="width:fit-content; float:right; color:white;">Welcome {{user.email}}</p>
     {% else %}
     {% comment %} <a class="btn btn-outline-success right-align" href="/login/" id="login" style="float:inline-end;">Log
       in</a> {% endcomment %}
