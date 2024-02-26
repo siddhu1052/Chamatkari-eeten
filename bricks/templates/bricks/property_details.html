@@ -1,53 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     {% load static %}
-    <link
-      rel="stylesheet"
-      href="{% static 'bricks/style_property_details.css' %}"
-    />
-  </head>
+    <link rel="stylesheet" href="{% static 'bricks/style_property_details.css' %}" />
+    <style>
+        .chip {
 
-  <body>
-    <div class="full_details">
-      <div class="left_side">
-        {% if island %}
-        <div class="part1">
-          <img src="{{obj.images.url}}" alt="" />
+            width: auto;
+            height: auto;
+            margin: 0vh 2vw;
+            margin-top: 2.5vw;
+
+            border-radius: 5%;
+            background-color: #f1f1f1;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .chip img {
+            height: 50%;
+            width: 80%;
+            border-radius: 50%;
+            margin: auto;
+            display: block;
+            padding: 0;
+
+        }
+
+        .closebtn {
+            padding-left: 10px;
+            color: #888;
+            font-weight: bold;
+            float: right;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .closebtn:hover {
+            color: #000;
+        }
+
+        #Para {
+            margin: 0;
+            padding: 0;
+            padding: 2vh 2vw;
+        }
+
+        #Para p {
+            margin: 0;
+            padding: 0;
+            font-size: 2vw;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="full_details" style="width: 100%;height: 100%;">
+        <div class="left_side" style="width: 50%;border: 1px solid #ddd;border-radius: 5px;">
+            {% if island %}
+            <div class="part1" style="width: 100%;height: auto;">
+                <img src="{{obj.images.url}}" alt="" />
+            </div>
+            <div class="part2">
+                <p>On - {{obj.cat}}</p>
+                <p>Area - {{obj.are}}</p>
+                <p>Land Type - {{obj.land_type}}</p>
+                <p>Price - {{obj.price}}</p>
+                <p>Address - {{obj.address}}</p>
+            </div>
+            {% else %}
+            <div class="part1" style="width: auto;height: 40%; margin: 2vh 2vw;">
+                <img style="width: 100%;height: 100%;" src="{{obj.image.url}}" alt="" />
+            </div>
+            <div class="part2" style="width: auto;height: 40%; margin: 2vh 2vw;">
+                <h2>On - {{obj.cat}}</h2>
+                <p>Area - {{obj.area}}</p>
+                <p>Floors - {{obj.floors}}</p>
+                <p>Furnished Status - {{obj.furnished_status}}</p>
+                <p>Type of ownership - {{obj.type_of_ownership}}</p>
+                <p>Age of Construction - {{obj.age}}</p>
+                <p>Price - {{obj.price}}</p>
+                <p>Address - {{obj.address}}</p>
+            </div>
+            {% endif %}
+            <div class="options">
+                <center>
+                    <button>Check Availability</button>
+                    <button>Contact Owner</button>
+                </center>
+            </div>
         </div>
-        <div class="part2">
-          <p>On - {{obj.cat}}</p>
-          <p>Area - {{obj.are}}</p>
-          <p>Land Type - {{obj.land_type}}</p>
-          <p>Price - {{obj.price}}</p>
-          <p>Address - {{obj.address}}</p>
+        <div class="right_side" style="width: 50%;border: 1px solid #ddd;border-radius: 5px;">
+            <div class="chip">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Person" width="96" height="96">
+                <!-- <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span> -->
+                <h2 style="text-align: center;font-size: 3vw;text-decoration: underline;">Owner Deatils</h2>
+                <div id="Para">
+                    <p>Owner Name - {{obj.owner_name}}</p>
+                    <hr>
+                    <p>Owner Phone No - {{obj.owner_phone}}</p>
+                    <hr>
+                    <p>Owner Email - {{obj.owner_mail}}</p>
+                </div>
+            </div>
+
+
         </div>
-        {% else %}
-        <div class="part1">
-          <img src="{{obj.image.url}}" alt="" />
-        </div>
-        <div class="part2">
-          <h2>On - {{obj.cat}}</h2>
-          <p>Area - {{obj.area}}</p>
-          <p>Floors - {{obj.floors}}</p>
-          <p>Furnished Status - {{obj.furnished_status}}</p>
-          <p>Type of ownership - {{obj.type_of_ownership}}</p>
-          <p>Age of Construction - {{obj.age}}</p>
-          <p>Price - {{obj.price}}</p>
-          <p>Address - {{obj.address}}</p>
-        </div>
-        {% endif %}
-        <div class="options">
-            <center>
-                <button>Check Availability</button>
-                <button>Contact Owner</button>
-            </center>
-        </div>
-      </div>
-      <div class="right_side"></div>
     </div>
-  </body>
+</body>
+
 </html>
