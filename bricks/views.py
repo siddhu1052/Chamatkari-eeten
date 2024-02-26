@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate , login ,logout 
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from .form import UserForm
 # Create your views
 
 def home(request):
@@ -14,33 +15,34 @@ def home(request):
     p=land.objects.all()
     q=built.objects.all()
     if request.method== 'GET':
-        return render(request,'bricks/home.html',{'signup_form':UserCreationForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
+        return render(request,'bricks/home.html',{'signup_form':UserForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
     else:
-        c=request.POST.get('username')
+        a=request.POST.get('username')
+        b=request.POST.get('password1')
+        c=request.POST.get('password2')
         d=request.POST.get('password')
-        if p and q:
-            user=authenticate(request,username=c,password=d)
+        
+        if a and d:
+            user=authenticate(request,username=a,password=d)
             if user is None:
-                return render(request,'bricks/home.html',{'signup_form':UserCreationForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm(),"error":"Username or Password not correct"})
+                return render(request,'bricks/home.html',{'signup_form':UserForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm(),"error":"Username or Password not correct"})
             else:
                 login(request, user)
-                return render(request,'bricks/home.html',{'signup_form':UserCreationForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
+                return render(request,'bricks/home.html',{'signup_form':UserForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
         else:
-            a=request.POST.get('username')
-            b=request.POST.get('password1')
-            c=request.POST.get('password2')
+            
             if b==c:
                 if(User.objects.filter(username =a)):
-                    return render(request,'bricks/home.html',{'signup_form':UserCreationForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
+                    return render(request,'bricks/home.html',{'signup_form':UserForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
                 else:
                     user=User.objects.create_user(username=a, password=b);
                     user.save()
                     login(request,user)
-                    return render(request,'bricks/home.html',{'signup_form':UserCreationForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
+                    return render(request,'bricks/home.html',{'signup_form':UserForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
             else:
-                return render(request,'bricks/home.html',{'signup_form':UserCreationForm(),'error':'password mismatch',"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
+                return render(request,'bricks/home.html',{'signup_form':UserForm(),'error':'password mismatch',"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
     
-    return render(request,'bricks/home.html',{'signup_form':UserCreationForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
+    return render(request,'bricks/home.html',{'signup_form':UserForm(),"obj":p,"obj2":q,"y":y,"login_form":AuthenticationForm()})
 
 def land_details(request):
     if(request.method=='GET'):
