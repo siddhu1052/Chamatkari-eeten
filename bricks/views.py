@@ -52,11 +52,8 @@ def land_details(request):
         x=land_Form()
         return render(request,'bricks/land_details.html',{'form':x})
     else:
-        x=land_Form(request.POST,request.FILES)
-        user = request.User #the user
-        email = user.email #their email
-        print(user.email)
-        x.owner_mail=user.email
+        email = request.user.email
+        x=land_Form(request.POST,request.FILES,owner_mail=request.user.email)
         if(x.is_valid()):
             x.save()
         return render(request,'bricks/land_details.html',{'form':x})
