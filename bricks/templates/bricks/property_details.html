@@ -115,7 +115,7 @@
             top: 0%;
             margin: auto;
             /* margin: auto; */
-            
+
             border: 1px solid #888;
             width: 60%;
             /* box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
@@ -183,15 +183,17 @@
         .modal-body {
             padding: 2vh 2vw;
             background: none;
-            background:rgba(4,1,0,0.3);
+            background: rgba(4, 1, 0, 0.3);
         }
-        .modal-body label{
-            font-size: 2vw;
+
+        .modal-body label {
+            font-size: 2.5vw;
             color: #f1f1f1;
             margin: 0;
         }
-        .modal-body input{
-            font-size: 1.5vw;
+
+        .modal-body input {
+            font-size: 2vw;
             width: auto;
             margin: 0;
         }
@@ -205,7 +207,7 @@
     </style>
 </head>
 
-<body style="margin: 0;padding: 0;" onload="Good('myModal')">
+<body style="margin: 0;padding: 0;">
     {% if user.is_authenticated %}
     <div class="full_details" style="width: 100%;height: auto;">
         <div class="left_side" style="width: 65%;height: auto; ">
@@ -269,32 +271,42 @@
 
         </div>
     </div>
+    </body>
+   
+        
+    
     {% else %}
-        <div id="myModal" class="modal">
+    <body onload="Good('myModal')">
+    <div id="myModal" class="modal">
 
-            <!-- Modal content -->
-            <div class="modal-content" style="margin-top: 10%;">
-                <div class="modal-header">
-                    <!-- <span class="close">&times;</span> -->
-                    <h2 style="text-align: center;font-size: 3vw;margin: 0;">Login</h2>
-                </div>
-                <div class="modal-body">
-                    <form action="">
-                        <label for="">Username :</label>
-                        <input type="text" placeholder="Enter Username"><hr>
-                        <label for="">Password :</label>
-                        <input type="password" placeholder="Enter Password"><hr>
-                        <center><button>Login</button></center>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <h3>Modal Footer</h3>
-                </div>
+        <!-- Modal content -->
+        <div class="modal-content" style="margin-top: 10%;width: 40vw;">
+            <div class="modal-header">
+                <!-- <span class="close">&times;</span> -->
+                <h2 style="text-align: center;font-size: 3vw;margin: 0;">Login to your Account</h2>
             </div>
-
+            <div class="modal-body">
+                <center>
+                    <form style="margin: 4vh 0vw;" method="post">
+                        {% csrf_token %}
+                        <label for="">Username :</label>
+                        <input type="text" placeholder="Enter Username" id="User" name="User">
+                        <hr>
+                        <label for="">Password :</label>
+                        <input type="password" placeholder="Enter Password" id="pass" name="pass">
+                        <hr>
+                        <center><button style="background-color: #4caf50;
+                            color: #fff;
+                            padding: 5px 15px;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;font-size: 2vw;">Login</button></center>
+                    </form>
+                </center>
+            </div>
         </div>
-    {% endif %}
 
+    </div>
     <script>
         function Good(modelid) {
             var modal = document.getElementById(modelid);
@@ -324,7 +336,11 @@
             // }
         }
     </script>
+    </body>
+    {% endif %}
 
-</body>
+
+
+
 
 </html>
