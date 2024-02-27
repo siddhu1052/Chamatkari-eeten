@@ -52,10 +52,12 @@ def land_details(request):
         x=land_Form()
         return render(request,'bricks/land_details.html',{'form':x})
     else:
-        email = request.user.email
-        x=land_Form(request.POST,request.FILES,owner_mail=request.user.email)
-        if(x.is_valid()):
-            x.save()
+        x=land_Form()
+        data=land_Form(request.POST,request.FILES)
+        if(data.is_valid()):
+            t = data.save(commit=False)
+            t.owner_mail = request.user.email
+            t.save()
         return render(request,'bricks/land_details.html',{'form':x})
 
 def built_details(request):
@@ -63,12 +65,12 @@ def built_details(request):
         x=built_Form()
         return render(request,'bricks/built_details.html',{'form':x})
     else:
-        x=built_Form(request.POST,request.FILES)
-        user = request.user #the user
-        email = user.email #their email
-        x.owner_mail=user.email
-        if(x.is_valid()):
-            x.save()
+        x=built_Form()
+        data=built_Form(request.POST,request.FILES)
+        if(data.is_valid()):
+            t = data.save(commit=False)
+            t.owner_mail = request.user.email
+            t.save()
         return render(request,'bricks/built_details.html',{'form':x})
 
 def properties(request):
