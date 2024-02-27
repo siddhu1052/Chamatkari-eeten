@@ -87,16 +87,31 @@ def properties(request):
 def property_details(request,property_id):
     # property_id=request.GET.get('property_id')
     p_type=request.GET.get('p_type')
-    is_land = True
-    if p_type == "Built" :
-        # print("Built")
-        is_land=False
-        obj=built.objects.filter(pk=property_id)
-    else: 
-        # print ("Unknown property")
-        obj=land.objects.filter(pk=property_id)
+    if request.method == 'GET':
+     is_land = True
+     if p_type == "Built" :
+         # print("Built")
+         is_land=False
+         obj=built.objects.filter(pk=property_id)
+     else: 
+         # print ("Unknown property")
+         obj=land.objects.filter(pk=property_id)
     
-    return render(request,'bricks/property_details.html',{"obj":obj[0],"is_land":is_land})
+     return render(request,'bricks/property_details.html',{"obj":obj[0],"is_land":is_land})
+    else:
+        a=request.POST.get('User')
+        b=request.POST.get('pass')
+        user=authenticate(request,username=a,password=b)
+        if user is not None:
+            login(request, user)
+            #messages.success(request, f' welcome {username} !!')
+            is_land = True
+            if p_type == "Built" :
+              # print("Built")
+             is_land=False
+             obj=built.objects.filter(pk=property_id)
+            else:obj=land.objects.filter(pk=property_id)
+        return render(request,'bricks/property_details.html',{"obj":obj[0],"is_land":is_land}) 
 
 def Login(request):
     if request.method == 'POST':
