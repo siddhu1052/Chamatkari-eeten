@@ -21,6 +21,9 @@
     overflow: hidden;
     /* height: 50vh; */
 }
+.part1:hover{
+    box-shadow: 0 0 5vw rgb(5, 0, 0);
+}
 
 .part1>img {
     /* object-fit:fill; */
