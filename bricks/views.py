@@ -111,7 +111,9 @@ def property_details(request,property_id):
              is_land=False
              obj=built.objects.filter(pk=property_id)
             else:obj=land.objects.filter(pk=property_id)
-        return render(request,'bricks/property_details.html',{"obj":obj[0],"is_land":is_land}) 
+            return render(request,'bricks/property_details.html',{"obj":obj[0],"is_land":is_land})
+        else:
+            return render(request,'bricks/property_details.html',{'greet':"Please enter the details carefully"})     
 
 def Login(request):
     if request.method == 'POST':

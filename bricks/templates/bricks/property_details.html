@@ -271,12 +271,13 @@
 
         </div>
     </div>
-    </body>
-   
-        
-    
-    {% else %}
-    <body onload="Good('myModal')">
+</body>
+
+
+
+{% else %}
+
+<body onload="Good('myModal')">
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
@@ -302,7 +303,14 @@
                             border-radius: 4px;
                             cursor: pointer;font-size: 2vw;">Login</button></center>
                     </form>
+
                 </center>
+                {% if greet %}
+                
+                
+                    <h2 style="text-align: center;font-size: 3vw;margin: 0;">{{greet}}</h2>
+                
+                {% endif %}
             </div>
         </div>
 
@@ -336,8 +344,8 @@
             // }
         }
     </script>
-    </body>
-    {% endif %}
+</body>
+{% endif %}
 
 
 
