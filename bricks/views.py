@@ -93,11 +93,12 @@ def property_details(request,property_id):
          # print("Built")
          is_land=False
          obj=built.objects.filter(pk=property_id)
+         return render(request,'bricks/property_details.html',{"obj":obj[0]})
      else: 
          # print ("Unknown property")
          obj=land.objects.filter(pk=property_id)
+         return render(request,'bricks/property_details.html',{"obj":obj[0],"is_land":is_land})
     
-     return render(request,'bricks/property_details.html',{"obj":obj[0],"is_land":is_land})
     else:
         a=request.POST.get('User')
         b=request.POST.get('pass')

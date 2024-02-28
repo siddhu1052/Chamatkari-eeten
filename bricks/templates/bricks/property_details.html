@@ -1,346 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'bricks/style_property_details.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'bricks/style_property_details.css' %}"
+    />
     <style>
-        .chip {
-            position: fixed;
-            right: 0;
-            left: 65%;
+      .chip {
+        position: fixed;
+        right: 0;
+        left: 65%;
+        width: auto;
+        height: auto;
+
+        /* margin-top: 2vh; */
+
+        border-radius: 5%;
+        background-color: #f1f1f1;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+
+      .chip img {
+        height: 50%;
+        width: 80%;
+        border-radius: 50%;
+        margin: auto;
+        display: block;
+        padding: 0;
+      }
+
+      .closebtn {
+        padding-left: 10px;
+        color: #888;
+        font-weight: bold;
+        float: right;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .closebtn:hover {
+        color: #000;
+      }
+
+      #Para {
+        margin: 0;
+        padding: 0;
+        padding: 2vh 2vw;
+      }
+
+      #Para p {
+        margin: 0;
+        padding: 0;
+        font-size: 1vw;
+      }
+
+      #data1 {
+        margin: 0;
+        padding: 0;
+        padding: 2vh 2vw;
+        box-shadow: 0 0 0.75vw rgb(5, 0, 0);
+        border-radius: 10px;
+      }
+
+      #data1:hover {
+        box-shadow: 0 0 5vw rgb(5, 0, 0);
+      }
+
+      #data1 h2 {
+        font-size: 2.5vw;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      #data1 p {
+        margin: 0;
+        padding: 0;
+        font-size: 1.5vw;
+      }
+
+      .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+      }
+
+      /* Modal Content */
+      .modal-content {
+        position: relative;
+        top: 0%;
+        margin: auto;
+        /* margin: auto; */
+
+        border: 1px solid #888;
+        width: 60%;
+        /* box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+        border-radius: 10px;
+        /* background: none;background:rgba(4,1,0,0.3); */
+      }
+
+      /* Add Animation */
+      @-webkit-keyframes animatetop {
+        from {
+          top: -300px;
+          opacity: 0;
+        }
+
+        to {
+          top: 0;
+          opacity: 1;
+        }
+      }
+
+      @keyframes animatetop {
+        from {
+          top: -300px;
+          opacity: 0;
+        }
+
+        to {
+          top: 0;
+          opacity: 1;
+        }
+      }
+
+      /* The Close Button */
+      .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .modal-header {
+        padding: 2vh 2vw;
+        /* background-color: #5cb85c; */
+        background-color: grey;
+        color: white;
+      }
+
+      .modal-header p {
+        text-align: center;
+        font-size: 2vw;
+      }
+
+      .modal-body {
+        padding: 2vh 2vw;
+        background: none;
+        background: rgba(4, 1, 0, 0.3);
+      }
+
+      .modal-body label {
+        font-size: 2.5vw;
+        color: #f1f1f1;
+        margin: 0;
+      }
+
+      .modal-body input {
+        font-size: 2vw;
+        width: auto;
+        margin: 0;
+      }
+
+      .modal-footer {
+        padding: 2vh 2vw;
+        margin: 0;
+        background-color: #212121;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 0">
+    {% if user.is_authenticated %}
+    <div class="full_details" style="width: 100%; height: auto">
+      <div class="left_side" style="width: 65%; height: auto">
+        {% if is_land %}
+        <div
+          class="part1"
+          style="
             width: auto;
-            height: auto;
-
-
-            /* margin-top: 2vh; */
-
-            border-radius: 5%;
-            background-color: #f1f1f1;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        }
-
-        .chip img {
-            height: 50%;
-            width: 80%;
-            border-radius: 50%;
-            margin: auto;
-            display: block;
-            padding: 0;
-
-        }
-
-        .closebtn {
-            padding-left: 10px;
-            color: #888;
-            font-weight: bold;
-            float: right;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .closebtn:hover {
-            color: #000;
-        }
-
-        #Para {
-            margin: 0;
-            padding: 0;
-            padding: 2vh 2vw;
-        }
-
-        #Para p {
-            margin: 0;
-            padding: 0;
-            font-size: 2vw;
-
-        }
-
-        #data1 {
-            margin: 0;
-            padding: 0;
-            padding: 2vh 2vw;
+            height: 40%;
+            margin: 2vh 2vw;
             box-shadow: 0 0 0.75vw rgb(5, 0, 0);
             border-radius: 10px;
-        }
-
-        #data1:hover {
-            box-shadow: 0 0 5vw rgb(5, 0, 0);
-        }
-
-        #data1 h2 {
-            font-size: 2.5vw;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        #data1 p {
-            margin: 0;
-            padding: 0;
-            font-size: 1.5vw;
-        }
-
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-            -webkit-backdrop-filter: blur(8px);
-            backdrop-filter: blur(8px);
-
-        }
-
-        /* Modal Content */
-        .modal-content {
-            position: relative;
-            top: 0%;
-            margin: auto;
-            /* margin: auto; */
-
-            border: 1px solid #888;
-            width: 60%;
-            /* box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.20);
-            -webkit-animation-name: animatetop;
-            -webkit-animation-duration: 0.4s;
-            animation-name: animatetop;
-            animation-duration: 0.4s;
-            border-radius: 10px;
-            /* background: none;background:rgba(4,1,0,0.3); */
-        }
-
-        /* Add Animation */
-        @-webkit-keyframes animatetop {
-            from {
-                top: -300px;
-                opacity: 0
-            }
-
-            to {
-                top: 0;
-                opacity: 1
-            }
-        }
-
-        @keyframes animatetop {
-            from {
-                top: -300px;
-                opacity: 0
-            }
-
-            to {
-                top: 0;
-                opacity: 1
-            }
-        }
-
-        /* The Close Button */
-        .close {
-            color: white;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .modal-header {
-            padding: 2vh 2vw;
-            /* background-color: #5cb85c; */
-            background-color: grey;
-            color: white;
-        }
-
-        .modal-header p {
-            text-align: center;
-            font-size: 2vw;
-        }
-
-        .modal-body {
-            padding: 2vh 2vw;
-            background: none;
-            background: rgba(4, 1, 0, 0.3);
-        }
-
-        .modal-body label {
-            font-size: 2.5vw;
-            color: #f1f1f1;
-            margin: 0;
-        }
-
-        .modal-body input {
-            font-size: 2vw;
+          "
+        >
+          <img
+            style="width: 100%; height: 100%; border-radius: 10px"
+            src="{{obj.image.url}}"
+            alt=""
+          />
+        </div>
+        <div
+          class="part2"
+          style="
             width: auto;
-            margin: 0;
-        }
-
-        .modal-footer {
-            padding: 2vh 2vw;
-            margin: 0;
-            background-color: #212121;
-            color: white;
-        }
-    </style>
-</head>
-
-<body style="margin: 0;padding: 0;">
-    {% if user.is_authenticated %}
-    <div class="full_details" style="width: 100%;height: auto;">
-        <div class="left_side" style="width: 65%;height: auto; ">
-            {% if island %}
-            <div class="part1" style="width: 100%;height: auto;">
-                <img src="{{obj.images.url}}" alt="" />
-            </div>
-            <div class="part2">
-                <p>On - {{obj.cat}}</p>
-                <p>Area - {{obj.are}}</p>
-                <p>Land Type - {{obj.land_type}}</p>
-                <p>Price - {{obj.price}}</p>
-                <p>Address - {{obj.address}}</p>
-            </div>
-            {% else %}
-            <div class="part1" style="width: auto;height: 40%; margin: 2vh 2vw;box-shadow: 0 0 0.75vw rgb(5, 0, 0);
-            border-radius: 10px;">
-                <img style="width: 100%;height: 100%;border-radius: 10px;" src="{{obj.image.url}}" alt="" />
-            </div>
-            <div class="part2"
-                style="width: auto;height: auto; margin: 2vh 2vw;-webkit-backdrop-filter: blur(10px);backdrop-filter: blur(10px);">
-                <div id="data1">
-                    <h2>On - {{obj.cat}}</h2>
-                    <p>Area - {{obj.area}}</p>
-                    <hr>
-                    <p>Floors - {{obj.floors}}</p>
-                    <hr>
-                    <p>Furnished Status - {{obj.furnished_status}}</p>
-                    <hr>
-                    <p>Type of ownership - {{obj.type_of_ownership}}</p>
-                    <hr>
-                    <p>Age of Construction - {{obj.age}}</p>
-                    <hr>
-                    <p>Price - {{obj.price}}</p>
-                    <hr>
-                    <p>Address - {{obj.address}}</p>
-                </div>
-            </div>
-            {% endif %}
-            <div class="options">
-                <center>
-                    <button>Check Availability</button>
-                    <button>Contact Owner</button>
-                </center>
-            </div>
+            height: auto;
+            margin: 2vh 2vw;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+          "
+        >
+          <div id="data1">
+            <h2>On - {{obj.cat}}</h2>
+            <p>On - {{obj.cat}}</p>
+            <hr/>
+            <p>Area - {{obj.are}}</p>
+            <hr/>
+            <p>Land Type - {{obj.land_type}}</p>
+            <hr/>
+            <p>Price - {{obj.price}}</p>
+            <hr/>
+            <p>Address - {{obj.address}}</p>
+            <hr/>
+          </div>
         </div>
-        <div class="right_side" style="width: 35%;height: auto; ">
-            <div class="chip">
-                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Person" width="96" height="96">
-                <!-- <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span> -->
-                <h2 style="text-align: center;font-size: 3vw;text-decoration: underline;">Owner Deatils</h2>
-                <div id="Para">
-                    <p>Owner Name - {{obj.owner_name}}</p>
-                    <hr>
-                    <p>Owner Phone No - {{obj.owner_phone}}</p>
-                    <hr>
-                    <p>Owner Email - {{obj.owner_mail}}</p>
-                </div>
-            </div>
-
-
+        {% else %}
+        <div
+          class="part1"
+          style="
+            width: auto;
+            height: 40%;
+            margin: 2vh 2vw;
+            box-shadow: 0 0 0.75vw rgb(5, 0, 0);
+            border-radius: 10px;
+          "
+        >
+          <img
+            style="width: 100%; height: 100%; border-radius: 10px"
+            src="{{obj.image.url}}"
+            alt=""
+          />
         </div>
+        <div
+          class="part2"
+          style="
+            width: auto;
+            height: auto;
+            margin: 2vh 2vw;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+          "
+        >
+          <div id="data1">
+            <h2>On - {{obj.cat}}</h2>
+            <p>Area - {{obj.area}}</p>
+            <hr />
+            <p>Floors - {{obj.floors}}</p>
+            <hr />
+            <p>Furnished Status - {{obj.furnished_status}}</p>
+            <hr />
+            <p>Type of ownership - {{obj.type_of_ownership}}</p>
+            <hr />
+            <p>Age of Construction - {{obj.age}}</p>
+            <hr />
+            <p>Price - {{obj.price}}</p>
+            <hr />
+            <p>Address - {{obj.address}}</p>
+            <hr/>
+          </div>
+        </div>
+        {% endif %}
+        <div class="options">
+          <center>
+            <button>Send Request</button>
+            {% comment %} <button>Contact Owner</button> {% endcomment %}
+          </center>
+        </div>
+      </div>
+      <div class="right_side" style="width: 35%; height: 100%">
+        <div class="chip">
+          <img
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="Person"
+            width="96"
+            height="96"
+          />
+          <!-- <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span> -->
+          <h2
+            style="
+              text-align: center;
+              font-size: 2vw;
+              text-decoration: underline;
+            "
+          >
+            Owner Deatils
+          </h2>
+          <div id="Para">
+            <p>Owner Name - {{obj.owner_name}}</p>
+            <hr />
+            <p>Owner Phone No - {{obj.owner_phone}}</p>
+            <hr />
+            <p>Owner Email - {{obj.owner_mail}}</p>
+            <hr/>
+          </div>
+        </div>
+      </div>
     </div>
-    </body>
-   
-        
-    
-    {% else %}
-    <body onload="Good('myModal')">
+  </body>
+
+  {% else %}
+  <body onload="Good('myModal')">
     <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content" style="margin-top: 10%;width: 40vw;">
-            <div class="modal-header">
-                <!-- <span class="close">&times;</span> -->
-                <h2 style="text-align: center;font-size: 3vw;margin: 0;">Login to your Account</h2>
-            </div>
-            <div class="modal-body">
-                <center>
-                    <form style="margin: 4vh 0vw;" method="POST">
-                        {% csrf_token %}
-                        <label for="">Username :</label>
-                        <input type="text" placeholder="Enter Username" id="User" name="User">
-                        <hr>
-                        <label for="">Password :</label>
-                        <input type="password" placeholder="Enter Password" id="pass" name="pass">
-                        <hr>
-                        <center><button style="background-color: #4caf50;
-                            color: #fff;
-                            padding: 5px 15px;
-                            border: none;
-                            border-radius: 4px;
-                            cursor: pointer;font-size: 2vw;">Login</button></center>
-                    </form>
-                </center>
-            </div>
+      <!-- Modal content -->
+      <div class="modal-content" style="margin-top: 10%; width: 40vw">
+        <div class="modal-header">
+          <!-- <span class="close">&times;</span> -->
+          <h2 style="text-align: center; font-size: 3vw; margin: 0">
+            Login to your Account
+          </h2>
         </div>
-
+        <div class="modal-body">
+          <center>
+            <form style="margin: 4vh 0vw" method="POST">
+              {% csrf_token %}
+              <label for="">Username :</label>
+              <input
+                type="text"
+                placeholder="Enter Username"
+                id="User"
+                name="User"
+              />
+              <hr />
+              <label for="">Password :</label>
+              <input
+                type="password"
+                placeholder="Enter Password"
+                id="pass"
+                name="pass"
+              />
+              <hr />
+              <center>
+                <button
+                  style="
+                    background-color: #4caf50;
+                    color: #fff;
+                    padding: 5px 15px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 2vw;
+                  "
+                >
+                  Login
+                </button>
+              </center>
+            </form>
+          </center>
+        </div>
+      </div>
     </div>
     <script>
-        function Good(modelid) {
-            var modal = document.getElementById(modelid);
-            console.log("hello")
-            modal.style.display = "block";
+      function Good(modelid) {
+        var modal = document.getElementById(modelid);
+        console.log("hello");
+        modal.style.display = "block";
 
-            // Get the button that opens the modal
-            // var btn = document.getElementById(Btnid);
+        // Get the button that opens the modal
+        // var btn = document.getElementById(Btnid);
 
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
 
-            // When the user clicks the button, open the modal 
+        // When the user clicks the button, open the modal
 
+        // When the user clicks on <span> (x), close the modal
+        // span.onclick = function () {
+        //     modal.style.display = "none";
+        // }
 
-
-            // When the user clicks on <span> (x), close the modal
-            // span.onclick = function () {
-            //     modal.style.display = "none";
-            // }
-
-            // When the user clicks anywhere outside of the modal, close it
-            // window.onclick = function (event) {
-            //     if (event.target == modal) {
-            //         modal.style.display = "none";
-            //     }
-            // }
-        }
+        // When the user clicks anywhere outside of the modal, close it
+        // window.onclick = function (event) {
+        //     if (event.target == modal) {
+        //         modal.style.display = "none";
+        //     }
+        // }
+      }
     </script>
-    </body>
-    {% endif %}
-
-
-
-
-
+  </body>
+  {% endif %}
 </html>
