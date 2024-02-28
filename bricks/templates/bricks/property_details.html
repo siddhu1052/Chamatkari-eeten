@@ -9,29 +9,92 @@
       rel="stylesheet"
       href="{% static 'bricks/style_property_details.css' %}"
     />
+    {% comment %} {% include "bricks/navbar.html" %} {% endcomment %}
     <style>
+      @media only screen and (max-width: 760px) {
+        .full_details{
+          display:flex;
+          flex-direction:column;
+          height:auto;
+        }
+        .right_side{
+          position: relative;
+          display:flexbox;
+          overflow:hidden;
+          height:50%;
+          width:100%%;
+          
+          float: inline-end;
+        }
+        .left_side{
+          width:100%;
+        }
+        .chip{
+          display:block;
+          float:inline;
+        }
+        .chip>img {
+          display:none;
+          height: 25vw;
+          width: 25vw;
+          border-radius: 50%;
+          margin: auto;
+          margin-right:2vw;
+          display: flex;
+          padding: 0;
+          float:left;
+        }
+      }
+      
+      .full_details{
+        width: 100%; 
+        height: auto; 
+        display: flexbox;
+      }
       .chip {
-        position: fixed;
+    
+        {% comment %} position: fixed; {% endcomment %}
         right: 0;
-        left: 65%;
-        width: auto;
-        height: auto;
+        {% comment %} left: 65%; {% endcomment %}
+        width: 100%;
+        height: 100%;
 
-        /* margin-top: 2vh; */
+        {% comment %} /* margin-top: 2vh; */ {% endcomment %}
 
-        border-radius: 5%;
+        border-radius: 0%;
         background-color: #f1f1f1;
         font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
       }
-
+      @media only screen and (min-width: 761px) {
+        .right_side{
+          {% comment %} height: 100%; display:flexbox; flex:1; box-sizing: border-box; {% endcomment %}
+  
+          display:flex;
+          box-sizing:border-box;
+          position: fixed;
+          right:0;
+          bottom:0;
+          top:0;
+          height:auto;
+          background-color: #f1f1f1;
+          {% comment %} position: fixed; {% endcomment %}
+        }
+        .left_side{
+        width:77%; 
+        height: auto;
+      }
       .chip img {
-        height: 50%;
-        width: 80%;
+        height: 35vh;
+        width: 35vh;
         border-radius: 50%;
         margin: auto;
         display: block;
         padding: 0;
       }
+      }
+      
+      
+      
 
       .closebtn {
         padding-left: 10px;
@@ -207,8 +270,10 @@
 
   <body style="margin: 0; padding: 0">
     {% if user.is_authenticated %}
-    <div class="full_details" style="width: 100%; height: auto">
-      <div class="left_side" style="width: 65%; height: auto">
+    <div
+      class="full_details"
+    >
+      <div class="left_side">
         {% if is_land %}
         <div
           class="part1"
@@ -231,7 +296,7 @@
           style="
             width: auto;
             height: auto;
-            margin: 2vh 2vw;
+            padding: 2vh 2vw;
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
           "
@@ -239,15 +304,15 @@
           <div id="data1">
             <h2>On - {{obj.cat}}</h2>
             <p>On - {{obj.cat}}</p>
-            <hr/>
+            <hr />
             <p>Area - {{obj.are}}</p>
-            <hr/>
+            <hr />
             <p>Land Type - {{obj.land_type}}</p>
-            <hr/>
+            <hr />
             <p>Price - {{obj.price}}</p>
-            <hr/>
+            <hr />
             <p>Address - {{obj.address}}</p>
-            <hr/>
+            <hr />
           </div>
         </div>
         {% else %}
@@ -292,7 +357,7 @@
             <p>Price - {{obj.price}}</p>
             <hr />
             <p>Address - {{obj.address}}</p>
-            <hr/>
+            <hr />
           </div>
         </div>
         {% endif %}
@@ -303,13 +368,13 @@
           </center>
         </div>
       </div>
-      <div class="right_side" style="width: 35%; height: 100%">
+      <div
+        class="right_side"
+      >
         <div class="chip">
           <img
             src="https://www.w3schools.com/howto/img_avatar.png"
             alt="Person"
-            width="96"
-            height="96"
           />
           <!-- <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span> -->
           <h2
@@ -327,7 +392,7 @@
             <p>Owner Phone No - {{obj.owner_phone}}</p>
             <hr />
             <p>Owner Email - {{obj.owner_mail}}</p>
-            <hr/>
+            <hr />
           </div>
         </div>
       </div>

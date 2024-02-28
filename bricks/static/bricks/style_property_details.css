@@ -9,11 +9,7 @@
     width: 60vw;
 }
 
-.right_side {
-    display: flexbox;
-    flex-direction: column;
-    flex: 1;
-}
+
 
 .part1 {
     display: flexbox;
@@ -49,6 +45,7 @@
 .options button:hover {
     background: rgba(0, 0, 0, 0.9);
     color: antiquewhite;
+    
 }
 
 
