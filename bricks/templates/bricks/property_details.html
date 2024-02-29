@@ -23,7 +23,7 @@
           overflow:hidden;
           height:50%;
           width:100%%;
-          
+
           float: inline-end;
         }
         .left_side{
@@ -45,14 +45,14 @@
           float:left;
         }
       }
-      
+
       .full_details{
-        width: 100%; 
-        height: auto; 
+        width: 100%;
+        height: auto;
         display: flexbox;
       }
       .chip {
-    
+
         {% comment %} position: fixed; {% endcomment %}
         right: 0;
         {% comment %} left: 65%; {% endcomment %}
@@ -68,7 +68,7 @@
       @media only screen and (min-width: 761px) {
         .right_side{
           {% comment %} height: 100%; display:flexbox; flex:1; box-sizing: border-box; {% endcomment %}
-  
+
           display:flex;
           box-sizing:border-box;
           position: fixed;
@@ -80,7 +80,7 @@
           {% comment %} position: fixed; {% endcomment %}
         }
         .left_side{
-        width:77%; 
+        width:77%;
         height: auto;
       }
       .chip img {
@@ -92,9 +92,9 @@
         padding: 0;
       }
       }
-      
-      
-      
+
+
+
 
       .closebtn {
         padding-left: 10px;
@@ -270,9 +270,7 @@
 
   <body style="margin: 0; padding: 0">
     {% if user.is_authenticated %}
-    <div
-      class="full_details"
-    >
+    <div class="full_details">
       <div class="left_side">
         {% if is_land %}
         <div
@@ -363,14 +361,15 @@
         {% endif %}
         <div class="options">
           <center>
-            <button>Send Request</button>
+            <a href="{% url 'send_mail' obj.owner_mail %}"
+              ><button>Send Request</button>
+            </a>
+
             {% comment %} <button>Contact Owner</button> {% endcomment %}
           </center>
         </div>
       </div>
-      <div
-        class="right_side"
-      >
+      <div class="right_side">
         <div class="chip">
           <img
             src="https://www.w3schools.com/howto/img_avatar.png"
@@ -449,6 +448,9 @@
           </center>
         </div>
       </div>
+
+      
+
     </div>
     <script>
       function Good(modelid) {

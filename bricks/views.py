@@ -8,6 +8,13 @@ from django.contrib.auth import authenticate , login ,logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .form import UserForm
+
+from email.message import EmailMessage
+import ssl
+import smtplib
+from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
+
 # Create your views
 
 def home(request):
@@ -159,3 +166,19 @@ def logout_user(request):
         p=land.objects.all()
         q=built.objects.all()
         return redirect('home')
+    
+def send_mail(request,recipient,name):
+    print(recipient)    
+    sender="siddhussingh@gmail.com"
+    em=EmailMessage()
+    body=""
+    subject="Magical Bricks"
+    em['From']=sender
+    em['To']=recipient
+    em['Subject']=subject
+    em.set_content(body)
+    context=ssl.create_default_context()
+    with smtplib.SMTP_SSL('smtp.gmail.com',465,context=context) as smtp:
+        smtp.login(sender,"wkrjezvweimmhyod")
+        smtp.sendmail(sender,recipient,em.as_string())
+    return redirect('/')

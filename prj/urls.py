@@ -32,7 +32,7 @@ urlpatterns = [
     path('properties',views.properties,name='properties'),
     path('property_details/<str:property_id>/',views.property_details,name='property_details'),
     path('logout_user',views.logout_user,name='logout_user'),
-    
+    path('send_mail/<str:recipient>/',views.send_mail,name="send_mail")
 ]
 
 
