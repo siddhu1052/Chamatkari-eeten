@@ -167,7 +167,7 @@ def logout_user(request):
         q=built.objects.all()
         return redirect('home')
     
-def send_mail(request,recipient,name):
+def send_mail(request,recipient):
     print(recipient)    
     sender="siddhussingh@gmail.com"
     em=EmailMessage()
