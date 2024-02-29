@@ -1,9 +1,16 @@
+.myform{
+    background: rgba(0,0,0, 0.5);
+}
+
+
+
 .myform>form>div>input {
-    background:linear-gradient(90deg,rgba(0,0,0, 0.5),rgba(34, 134, 222, 0.3),rgba(86, 31, 225, 0.3),rgba(0,0,0, 0.5));
+    background:rgba(108, 107, 109,0.3);
     /* opacity: 0.2; */
-    border: 0.3vw  rgba(9, 2, 291,1);
-    border-radius: 4vw;
+    /* border: 0.003vw  rgba(0,0,0,1); */
+    border-radius: 1vw;
     border-style: groove;
+    color:white;
 }
 
 .myform>form>div>label {
