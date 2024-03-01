@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        display:flex;
+        background: url("https://cdn.pixabay.com/photo/2017/08/03/15/38/architecture-2576906_640.jpg");
+        height:100vh;
+        margin:0;
+        width:100vw;
+        justify-content:center;
+        align:center;
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+      }
+      .Enter_Details {
+        display: flex-box;
+        right:0;
+        z-index: 1;
+        backdrop-filter: blur(8px);
+        height:fit-content;
+        width: fit-content;
+        background:rgba(0,0,0,0.1)
+      }
+      center {
+        jsutify-content:center;
+        justify-self:center;
+        
+        display:flexbox;
+        width:auto;        
+        height:fit-content;
+        width: fit-content;
+        margin:2vw;
+      }
+       h2{
+        overflow: auto;
+        font-size:3vw;
+        width:100%
+        height:fit-content;
+        padding:2vw;
+        background-color:grey;
+      }
+      .filds{
+        margin-left:2vw;
+      }
+      button{
+        transform: scale(1.2)
+      }
+    </style>
+    <div class="Enter_Details">
+      
+        <h2 style="text-align: center">Login page</h2>
+        <center>
+        <form method="post">
+          {% csrf_token %}
+          <div class="fields">
+            <label for="name">Name:</label>
+            <input type="text" id="Email" name="name" required />
+          </div>
+          <hr/>
+          <br/>
+          <div class="fields">
+            <label for="Email">Email:</label>
+            <input type="text" id="Email" name="Email" required />
+          </div>
+
+          <hr/>
+          <br />
+          <div class="fields">
+            <label for="phone">Mobile:</label>
+            <input type="text" id="phone" name="phone" required />
+          </div>
+          <hr/>/
+          <br />
+          <button
+            class="btn btn-outline-success btn-lg"
+            style="cursor: pointer"
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
+      </center>
+    </div>
+  </body>
+</html>

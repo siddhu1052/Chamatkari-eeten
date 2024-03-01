@@ -168,10 +168,22 @@ def logout_user(request):
         return redirect('home')
     
 def send_mail(request,recipient):
+    if request.method == 'GET':
+        return render(request,'bricks/send_mail.html')
+    else:
+        n=request.POST.get('name')
+        e=request.POST.get('Email')
+        p=request.POST.get('phone')
+        
+        body="Someone has shown interest on your property. You may contact "+n+" at"+'\n'+ "Mobile no : "+ p + '\n' + "Email : "+ e + '\n'
+        sendmail(recipient,body);
+        return redirect('/');
+        return render(request,'bricks/send_mail.html')
+
+def sendmail(recipient,body):
     print(recipient)    
-    sender="siddhussingh@gmail.com"
     em=EmailMessage()
-    body=""
+    sender="siddhussingh@gmail.com"
     subject="Magical Bricks"
     em['From']=sender
     em['To']=recipient
