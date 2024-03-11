@@ -183,7 +183,7 @@ def send_mail(request,recipient):
 def sendmail(recipient,body):
     print(recipient)    
     em=EmailMessage()
-    sender="siddhussingh@gmail.com"
+    sender="abc@gmail.com"
     subject="Magical Bricks"
     em['From']=sender
     em['To']=recipient
@@ -191,6 +191,6 @@ def sendmail(recipient,body):
     em.set_content(body)
     context=ssl.create_default_context()
     with smtplib.SMTP_SSL('smtp.gmail.com',465,context=context) as smtp:
-        smtp.login(sender,"wkrjezvweimmhyod")
+        smtp.login(sender,"********")
         smtp.sendmail(sender,recipient,em.as_string())
     return redirect('/')
